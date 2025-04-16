@@ -51,12 +51,50 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Figma exact colors
+        "zinc-800": "#333333",
+        "neutral-600": "#555555",
+        "violet-300": "#BFA8D9",
+        "stone-300": "#E3DAC2",
+        "neutral-400": "#A8A29E",
+        
         // Brand colors directly defined
         "brand-green": "#A8C3A7", // Sage Green
         "brand-purple": "#BFA8D9", // Soft Purple
         "brand-beige": "#E8D7B7", // Sand Beige
         "brand-blue": "#C5E1E6", // Light Blue
         "brand-amber": "#E3A76F", // Warm Amber
+        
+        // Theme colors
+        "theme": {
+          DEFAULT: "var(--color-primary)",
+          secondary: "var(--color-secondary)",
+          accent: "var(--color-accent)",
+          text: "var(--color-text)",
+        },
+        
+        // Pillar-specific colors
+        "nutrition": {
+          primary: "var(--nutrition-primary)",
+          secondary: "var(--nutrition-secondary)",
+          accent: "var(--nutrition-accent)",
+        },
+        "mindset": {
+          primary: "var(--mindset-primary)",
+          secondary: "var(--mindset-secondary)",
+          accent: "var(--mindset-accent)",
+        },
+        "sacred-house": {
+          primary: "var(--sacred-house-primary)",
+          secondary: "var(--sacred-house-secondary)",
+          accent: "var(--sacred-house-accent)",
+        },
+        // Text colors
+        "text": {
+          primary: "var(--text-primary)",
+          secondary: "var(--text-secondary)",
+          light: "var(--text-light)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -64,10 +102,26 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        serif: ["Cormorant Garamond", "serif"],
-        sans: ["Work Sans", "sans-serif"],
-        accent: ["Sacramento", "cursive"],
+        serif: ["var(--font-playfair)", "Cormorant Garamond", "serif"],
+        sans: ["var(--font-inter)", "Work Sans", "sans-serif"],
+        accent: ["var(--font-playfair)", "Cormorant Garamond", "serif"],
         body: ["Lora", "serif"],
+        "playfair": ["Playfair Display", "serif"],
+        "lora": ["Lora", "serif"],
+        "inter": ["Inter", "sans-serif"],
+      },
+      backgroundColor: {
+        'primary-brand': 'var(--color-primary)',
+        'secondary-brand': 'var(--color-secondary)',
+        'sage-green': 'var(--sage-green)',
+        'soft-purple': 'var(--soft-purple)',
+        'sand-beige': 'var(--sand-beige)',
+        'light-blue': 'var(--light-blue)',
+        'amber': 'var(--amber)',
+      },
+      textColor: {
+        'primary-brand': 'var(--color-primary)',
+        'secondary-brand': 'var(--color-secondary)',
       },
     },
   },

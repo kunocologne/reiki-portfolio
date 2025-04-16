@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Heart, Sparkles, Waves, Users, Star, Leaf, Mail, Phone, MapPin, Instagram, Facebook, Twitter } from "lucide-react"
+import { Heart, Sparkles, Waves, Users, Star, Leaf, Mail, Phone, MapPin, Instagram, Facebook } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Metadata } from "next"
@@ -7,250 +7,148 @@ import { Navigation } from "@/components/layout/Navigation"
 import { Footer } from "@/components/layout/Footer"
 
 export const metadata: Metadata = {
-  title: "Contact Nathanael Mor | Energy Healing & Wellness",
-  description: "Connect with Nathanael Mor for holistic healing services, retreat bookings, or culinary inquiries. Reach out for personalized sessions and wellness guidance.",
+  title: "Contact | Nathanael Mor",
+  description: "Get in touch with Nathanael Mor to begin your healing journey or inquire about services and retreats.",
 }
 
-export default function Contact() {
+export default function ContactPage() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#F8F5F2" }}>
+    <div className="min-h-screen bg-sand-beige">
       {/* Header */}
       <Navigation activePage="contact" />
 
-      {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12 md:mb-16">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
-                Let's <span style={{ color: "#E3A76F" }}>Connect</span>
-              </h1>
-              <p className="text-lg md:text-xl font-accent text-foreground/80 mb-4">
-                Ready to begin your healing journey?
-              </p>
-              <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto font-body">
-                Whether you have questions about my services, want to book a session, 
-                or are interested in visiting the Sacred House retreat, I'm here to help 
-                guide you on your path to holistic wellness.
-              </p>
-            </div>
+      {/* Main content */}
+      <main>
+        {/* Hero Section - Simple for Contact Page */}
+        <section className="py-20 bg-gradient-to-r from-soft-purple/20 to-sage-green/20">
+          <div className="container text-center">
+            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Let's Connect</h1>
+            <p className="text-xl max-w-3xl mx-auto text-soft-purple">
+              I'd love to hear from you. Reach out to discuss how we can work together on your healing journey.
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* Contact Form and Info Section */}
-      <section className="py-16 md:py-24 relative" style={{ backgroundColor: "#F8F5F2" }}>
-        <div className="absolute left-0 md:left-10 top-10 md:top-20 opacity-10">
-          <Image 
-            src="/icons/flower-of-life.svg"
-            alt="Sacred Geometry"
-            width={250}
-            height={250}
-            className="w-48 h-48 md:w-auto md:h-auto"
-          />
-        </div>
-        <div className="container px-4 sm:px-6">
-          <div className="grid md:grid-cols-12 gap-12 items-start">
+        </section>
+        
+        {/* Contact Form Section */}
+        <section className="py-16 container">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* Contact Information */}
+            <div className="bg-white p-8 rounded-lg shadow-sm">
+              <h2 className="text-2xl font-serif font-semibold mb-6 text-sage-green">Get in Touch</h2>
+              
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-sage-green/10 p-3 rounded-full">
+                    <Mail className="text-sage-green h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium">Email</h3>
+                    <p className="text-gray-600">contact@nathanaelmor.com</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="bg-soft-purple/10 p-3 rounded-full">
+                    <Phone className="text-soft-purple h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium">Phone</h3>
+                    <p className="text-gray-600">+41 76 123 45 67</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="bg-amber/10 p-3 rounded-full">
+                    <MapPin className="text-amber h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium">Location</h3>
+                    <p className="text-gray-600">Zürich, Switzerland</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-10">
+                <h3 className="text-xl font-serif font-medium mb-4 text-sage-green">Follow Me</h3>
+                <div className="flex space-x-4">
+                  <Link href="https://instagram.com" className="bg-white p-3 rounded-full shadow-sm hover:shadow transition">
+                    <Instagram className="h-5 w-5 text-soft-purple" />
+                  </Link>
+                  <Link href="https://facebook.com" className="bg-white p-3 rounded-full shadow-sm hover:shadow transition">
+                    <Facebook className="h-5 w-5 text-soft-purple" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+            
             {/* Contact Form */}
-            <div className="md:col-span-7 bg-white p-6 md:p-10 rounded-2xl shadow-sm">
-              <h2 className="text-2xl md:text-4xl font-serif font-bold mb-6">Send a Message</h2>
+            <div className="bg-white p-8 rounded-lg shadow-sm">
+              <h2 className="text-2xl font-serif font-semibold mb-6 text-soft-purple">Send a Message</h2>
+              
               <form className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium font-body" htmlFor="name">Name</label>
-                    <input
-                      id="name"
-                      type="text"
-                      placeholder="Your name"
-                      className="w-full p-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#E3A76F]/20 focus:border-[#E3A76F] transition-all font-body"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium font-body" htmlFor="email">Email</label>
-                    <input
-                      id="email"
-                      type="email"
-                      placeholder="Your email"
-                      className="w-full p-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#E3A76F]/20 focus:border-[#E3A76F] transition-all font-body"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium font-body" htmlFor="subject">Subject</label>
-                  <select
-                    id="subject"
-                    className="w-full p-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#E3A76F]/20 focus:border-[#E3A76F] transition-all font-body"
-                  >
-                    <option value="">Select inquiry type</option>
-                    <option value="healing">Healing Sessions</option>
-                    <option value="retreat">Sacred House Retreat</option>
-                    <option value="food">Food & Microgreens</option>
-                    <option value="other">Other Inquiry</option>
-                  </select>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium font-body" htmlFor="message">Message</label>
-                  <textarea
-                    id="message"
-                    rows={6}
-                    placeholder="Your message"
-                    className="w-full p-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#E3A76F]/20 focus:border-[#E3A76F] transition-all font-body"
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium mb-1">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-sage-green focus:border-sage-green"
+                    required
                   />
                 </div>
-
-                <Button
-                  type="submit"
-                  style={{ backgroundColor: "#E3A76F", color: "white" }}
-                  className="w-full py-4 text-lg font-sans hover:opacity-90 transition-opacity"
-                >
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-1">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-sage-green focus:border-sage-green"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium mb-1">
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-sage-green focus:border-sage-green"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-1">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-sage-green focus:border-sage-green"
+                    required
+                  ></textarea>
+                </div>
+                
+                <Button variant="default" className="w-full">
                   Send Message
                 </Button>
               </form>
             </div>
-
-            {/* Contact Info */}
-            <div className="md:col-span-5 space-y-8">
-              <h2 className="text-2xl md:text-4xl font-serif font-bold">Contact Information</h2>
-              <p className="font-body text-foreground/70">
-                Feel free to reach out through any of these channels, or fill out the form 
-                for a personalized response. I typically respond within 24-48 hours.
-              </p>
-
-              <div className="space-y-6">
-                <div className="flex gap-4 items-start">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
-                    style={{ backgroundColor: "rgba(227, 167, 111, 0.2)" }}
-                  >
-                    <Mail className="h-5 w-5" style={{ color: "#E3A76F" }} />
-                  </div>
-                  <div>
-                    <h4 className="font-serif font-bold text-lg">Email</h4>
-                    <a 
-                      href="mailto:hello@nathanael-mor.com" 
-                      className="text-foreground/70 hover:text-[#E3A76F] transition-colors font-body"
-                    >
-                      hello@nathanael-mor.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 items-start">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
-                    style={{ backgroundColor: "rgba(227, 167, 111, 0.2)" }}
-                  >
-                    <Phone className="h-5 w-5" style={{ color: "#E3A76F" }} />
-                  </div>
-                  <div>
-                    <h4 className="font-serif font-bold text-lg">Phone</h4>
-                    <a 
-                      href="tel:+1234567890" 
-                      className="text-foreground/70 hover:text-[#E3A76F] transition-colors font-body"
-                    >
-                      (123) 456-7890
-                    </a>
-                    <p className="text-sm text-foreground/60 font-body mt-1">Available 9am - 5pm, Monday - Friday</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 items-start">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
-                    style={{ backgroundColor: "rgba(227, 167, 111, 0.2)" }}
-                  >
-                    <MapPin className="h-5 w-5" style={{ color: "#E3A76F" }} />
-                  </div>
-                  <div>
-                    <h4 className="font-serif font-bold text-lg">The Sacred House</h4>
-                    <p className="text-foreground/70 font-body">123 Serenity Lane, Healing Valley, CA 94123</p>
-                    <p className="text-sm text-foreground/60 font-body mt-1">By appointment only</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Social Links */}
-              <div className="pt-6 border-t" style={{ borderColor: "rgba(227, 167, 111, 0.2)" }}>
-                <h4 className="font-serif font-bold text-lg mb-4">Connect Socially</h4>
-                <div className="flex gap-4">
-                  <a 
-                    href="https://instagram.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="w-10 h-10 rounded-full flex items-center justify-center transition-transform hover:scale-110"
-                    style={{ backgroundColor: "rgba(227, 167, 111, 0.2)" }}
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="h-5 w-5" style={{ color: "#E3A76F" }} />
-                  </a>
-                  <a 
-                    href="https://facebook.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="w-10 h-10 rounded-full flex items-center justify-center transition-transform hover:scale-110"
-                    style={{ backgroundColor: "rgba(227, 167, 111, 0.2)" }}
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="h-5 w-5" style={{ color: "#E3A76F" }} />
-                  </a>
-                  <a 
-                    href="https://twitter.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="w-10 h-10 rounded-full flex items-center justify-center transition-transform hover:scale-110"
-                    style={{ backgroundColor: "rgba(227, 167, 111, 0.2)" }}
-                    aria-label="Twitter"
-                  >
-                    <Twitter className="h-5 w-5" style={{ color: "#E3A76F" }} />
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      {/* Map Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-4xl font-serif font-bold mb-4">Find The Sacred House</h2>
-              <p className="text-lg font-accent" style={{ color: "#E3A76F" }}>
-                Our peaceful sanctuary awaits
-              </p>
-            </div>
-
-            <div className="rounded-2xl overflow-hidden shadow-md aspect-[16/9] relative">
-              <Image 
-                src="/images/contact/map.jpg"
-                alt="Map to Sacred House"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <a 
-                  href="https://maps.google.com/?q=Sacred+House,California" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    style={{ backgroundColor: "#E3A76F", color: "white" }}
-                    className="hover:opacity-90 font-sans shadow-xl transition-opacity"
-                  >
-                    Get Directions
-                  </Button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <Footer activePage="contact" />
+      {/* Footer component */}
+      <Footer />
     </div>
   )
 } 

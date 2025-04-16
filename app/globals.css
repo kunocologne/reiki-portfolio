@@ -1,20 +1,72 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lora:wght@400;500;600&family=Sacramento&family=Work+Sans:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lora:wght@400;500;600&family=Work+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --sage-green: #a8c3a7;
-  --soft-purple: #bfa8d9;
-  --sand-beige: #e8d7b7;
-  --light-blue: #c5e1e6;
-  --warm-amber: #e3a76f;
+  /* Primary Brand Colors */
+  --sage-green: #A8C3A7;
+  --soft-purple: #B39BC8;
+  --sand-beige: #F8F5F2;
+  --light-blue: #AEC5EB;
+  --amber: #E3A76F;
+  
+  /* Text Colors */
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-light: #FFFFFF;
+  
+  /* Figma Colors */
+  --zinc-800: #333333;
+  --neutral-600: #555555;
+  --sage-green: #A8C3A7;
+  --violet-300: #BFA8D9;
+  --stone-300: #E3DAC2;
+  
+  /* Pillar Colors: Nutrition (Previously Food) */
+  --nutrition-primary: #CB8563;    /* Terrakotta */
+  --nutrition-secondary: #E4AD90;
+  --nutrition-accent: #FFCDB2;
+  
+  /* Pillar Colors: Movement */
+  --movement-primary: #2C7E86;    /* Petrol */
+  --movement-secondary: #5AA9B0;
+  --movement-accent: #8DD1D7;
+  
+  /* Pillar Colors: Mindset (Previously Healing) */
+  --mindset-primary: #8B70AC;    /* Lavendel */
+  --mindset-accent: #9F7AEA;
+  --mindset-secondary: #B39BC8;
+  
+  /* Sacred House */
+  --sacred-house-primary: #718096;
+  --sacred-house-secondary: #F7FAFC;
+  --sacred-house-accent: #A0AEC0;
+  
+  /* Theme colors with defaults */
+  --color-primary: var(--amber);
+  --color-secondary: var(--sand-beige);
+  --color-accent: #9B8579;
+  --color-text: var(--text-primary);
+  
+  /* Additional variables */
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
 }
 
 body {
   background-color: var(--sand-beige);
-  color: #333;
+  color: var(--text-primary);
   font-family: "Work Sans", sans-serif;
 }
 
@@ -24,13 +76,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-playfair), "Cormorant Garamond", serif;
 }
 
 .accent-text {
-  font-family: "Sacramento", cursive;
-  font-size: 1.5em;
+  font-family: var(--font-playfair), "Cormorant Garamond", serif;
+  font-size: 1.25em;
   font-weight: 500;
+  font-style: italic;
   text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
 }
 
@@ -93,7 +146,7 @@ h6 {
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "Work Sans", sans-serif;
+    font-family: var(--font-inter), "Work Sans", sans-serif;
   }
   h1,
   h2,
@@ -101,7 +154,7 @@ h6 {
   h4,
   h5,
   h6 {
-    font-family: "Cormorant Garamond", serif;
+    font-family: var(--font-playfair), "Cormorant Garamond", serif;
   }
   p {
     font-family: "Lora", serif;
@@ -110,31 +163,114 @@ h6 {
 
 /* Brand Colors */
 :root {
-  --brand-green: #a8c3a7; /* Sage Green */
-  --brand-purple: #bfa8d9; /* Soft Purple */
-  --brand-beige: #e8d7b7; /* Sand Beige */
-  --brand-blue: #c5e1e6; /* Light Blue */
-  --brand-amber: #e3a76f; /* Warm Amber */
+  --brand-green: var(--sage-green);
+  --brand-purple: var(--soft-purple);
+  --brand-beige: var(--sand-beige);
+  --brand-blue: var(--light-blue);
+  --brand-amber: var(--amber);
 }
 
 .font-serif {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-playfair), "Cormorant Garamond", serif;
 }
 
 .font-sans {
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--font-inter), "Work Sans", sans-serif;
 }
 
 .font-accent {
-  font-family: "Sacramento", cursive;
-  font-size: 1.5em;
+  font-family: var(--font-playfair), "Cormorant Garamond", serif;
+  font-size: 1.3em;
   line-height: 1.2;
-  color: #9B59B6;
+  font-style: italic;
+  color: var(--color-primary);
   text-shadow: 0px 0px 1px rgba(255,255,255,0.5);
 }
 
 .font-body {
   font-family: "Lora", serif;
+}
+
+/* Pillar-specific text accents */
+.nutrition-text {
+  color: var(--nutrition-primary);
+}
+
+.mindset-text {
+  color: var(--mindset-primary);
+}
+
+/* Theme-based buttons */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  filter: brightness(110%);
+}
+
+/* Pillar-specific buttons */
+.btn-nutrition {
+  background-color: var(--nutrition-primary);
+  color: white;
+}
+
+.btn-mindset {
+  background-color: var(--mindset-primary);
+  color: var(--text-primary);
+}
+
+.btn-sacred-house {
+  background-color: var(--sacred-house-primary);
+  color: white;
+}
+
+/* Background utility classes */
+.bg-primary-brand {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary-brand {
+  background-color: var(--color-secondary);
+}
+
+.bg-sage-green {
+  background-color: var(--sage-green);
+}
+
+.bg-soft-purple {
+  background-color: var(--soft-purple);
+}
+
+.bg-sand-beige {
+  background-color: var(--sand-beige);
+}
+
+.bg-light-blue {
+  background-color: var(--light-blue);
+}
+
+.bg-amber {
+  background-color: var(--amber);
+}
+
+/* Pillar background classes */
+.bg-nutrition {
+  background-color: var(--nutrition-primary);
+}
+
+.bg-nutrition-light {
+  background-color: var(--nutrition-secondary);
+}
+
+.bg-mindset {
+  background-color: var(--mindset-primary);
+}
+
+.bg-mindset-light {
+  background-color: var(--mindset-secondary);
 }
 
 .prose {
@@ -145,5 +281,210 @@ h6 {
 .prose p {
   margin-top: 1.25em;
   margin-bottom: 1.25em;
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease forwards;
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 1s ease forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s infinite ease-in-out;
+}
+
+/* Staggered animation delays */
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Element-specific animations */
+.hero-text-animate > * {
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+.hero-text-animate > *:nth-child(1) {
+  animation-delay: 300ms;
+}
+
+.hero-text-animate > *:nth-child(2) {
+  animation-delay: 500ms;
+}
+
+.hero-text-animate > *:nth-child(3) {
+  animation-delay: 700ms;
+}
+
+.animate-fade-in {
+  opacity: 1 !important;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 5s ease-in-out 1s infinite;
+}
+
+.animate-float-slow {
+  animation: float 6s ease-in-out 0.5s infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.text-gradient {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.one {
+  transition-delay: 0.2s;
+}
+
+.fade-in.two {
+  transition-delay: 0.4s;
+}
+
+.fade-in.three {
+  transition-delay: 0.6s;
+}
+
+/* Figma Text Styles */
+.text-heading-hero {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 60px;
+  color: var(--zinc-800);
+}
+
+.text-heading-hero-accent {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 60px;
+  color: var(--violet-300);
+}
+
+.text-body-hero {
+  font-family: 'Lora', serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+  color: var(--neutral-600);
+}
+
+.text-button-primary {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+  color: white;
+}
+
+.text-button-secondary {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+  color: var(--violet-300);
 }
 

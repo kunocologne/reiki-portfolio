@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Instagram, Facebook, Twitter } from "lucide-react"
 
 type FooterProps = {
@@ -37,14 +36,7 @@ export function Footer({ activePage }: FooterProps) {
       <div className="container px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <Link href="/" className="flex items-center gap-2 mb-6 md:mb-0">
-            <Image
-              src="/icons/flower-of-life.svg"
-              alt="Logo"
-              width={32}
-              height={32}
-              className="h-8 w-8"
-            />
-            <span className="text-2xl font-serif font-bold italic tracking-wide" style={{ fontStyle: 'italic', letterSpacing: '0.05em' }}>Nathanael Mor</span>
+            <span className="text-2xl font-serif tracking-wide">Nathanael Mor</span>
           </Link>
 
           <div className="flex flex-col md:flex-row gap-8 items-center">

@@ -1,10 +1,9 @@
 "use client"
-
 import { useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useTheme } from "@/components/ui/theme-provider"
 
 type NavigationProps = {
   activePage?: 'home' | 'healing' | 'sacred-house' | 'food' | 'contact'
@@ -12,22 +11,43 @@ type NavigationProps = {
 
 export function Navigation({ activePage = 'home' }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { theme } = useTheme();
+  
+  // Get pillar-specific colors
+  const getActiveLinkColor = () => {
+    switch(activePage) {
+      case 'healing':
+        return { color: "var(--mindset-primary)" };
+      case 'food':
+        return { color: "var(--nutrition-primary)" };
+      case 'sacred-house':
+        return { color: "var(--movement-primary)" };
+      default:
+        return { color: "var(--color-primary)" };
+    }
+  };
+  
+  const getButtonBgColor = () => {
+    switch(activePage) {
+      case 'healing':
+        return { backgroundColor: "var(--mindset-primary)", color: "white" };
+      case 'food':
+        return { backgroundColor: "var(--nutrition-primary)", color: "white" };
+      case 'sacred-house':
+        return { backgroundColor: "var(--movement-primary)", color: "white" };
+      default:
+        return { backgroundColor: "var(--color-primary)", color: "white" };
+    }
+  };
 
   return (
     <header
       className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-sm border-b"
-      style={{ borderColor: "#F8F5F2" }}
+      style={{ borderColor: "var(--color-secondary)" }}
     >
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/icons/flower-of-life.svg"
-            alt="Logo"
-            width={32}
-            height={32}
-            className="h-8 w-8"
-          />
-          <span className="text-2xl font-serif font-bold italic tracking-wide" style={{ fontStyle: 'italic', letterSpacing: '0.05em' }}>Nathanael Mor</span>
+          <span className="text-2xl font-serif tracking-wide">Nathanael Mor</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -37,7 +57,7 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
             className={`text-foreground/80 hover:text-brand-purple transition-colors font-body ${
               activePage === 'home' ? 'font-bold' : ''
             }`}
-            style={activePage === 'home' ? { color: "#E3A76F" } : {}}
+            style={activePage === 'home' ? getActiveLinkColor() : {}}
           >
             Home
           </Link>
@@ -46,7 +66,7 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
             className={`text-foreground/80 hover:text-brand-purple transition-colors font-body ${
               activePage === 'healing' ? 'font-bold' : ''
             }`}
-            style={activePage === 'healing' ? { color: "#E3A76F" } : {}}
+            style={activePage === 'healing' ? getActiveLinkColor() : {}}
           >
             Healing
           </Link>
@@ -55,16 +75,16 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
             className={`text-foreground/80 hover:text-brand-purple transition-colors font-body ${
               activePage === 'sacred-house' ? 'font-bold' : ''
             }`}
-            style={activePage === 'sacred-house' ? { color: "#E3A76F" } : {}}
+            style={activePage === 'sacred-house' ? getActiveLinkColor() : {}}
           >
-            Sacred House
+            Sacred-House
           </Link>
           <Link 
             href="/food" 
             className={`text-foreground/80 hover:text-brand-purple transition-colors font-body ${
               activePage === 'food' ? 'font-bold' : ''
             }`}
-            style={activePage === 'food' ? { color: "#E3A76F" } : {}}
+            style={activePage === 'food' ? getActiveLinkColor() : {}}
           >
             Food
           </Link>
@@ -73,7 +93,7 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
         {/* Mobile Menu Button */}
         <div className="flex items-center gap-4">
           <Link href="/contact">
-            <Button style={{ backgroundColor: "#E3A76F", color: "white" }} className="hidden md:flex hover:opacity-90 font-sans">
+            <Button style={getButtonBgColor()} className="hidden md:flex hover:opacity-90 font-sans">
               Get in Touch
             </Button>
           </Link>
@@ -89,14 +109,14 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
       
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-t" style={{ borderColor: "#F8F5F2" }}>
+        <div className="md:hidden bg-white border-b border-t" style={{ borderColor: "var(--color-secondary)" }}>
           <nav className="container py-4 flex flex-col space-y-4">
             <Link 
               href="/" 
               className={`px-4 py-2 hover:bg-orange-50 rounded-md transition-colors font-body ${
                 activePage === 'home' ? 'bg-orange-50 font-semibold' : ''
               }`}
-              style={activePage === 'home' ? { color: "#E3A76F" } : {}}
+              style={activePage === 'home' ? getActiveLinkColor() : {}}
               onClick={() => setMobileMenuOpen(false)}
             >
               Home
@@ -106,7 +126,7 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
               className={`px-4 py-2 hover:bg-orange-50 rounded-md transition-colors font-body ${
                 activePage === 'healing' ? 'bg-orange-50 font-semibold' : ''
               }`}
-              style={activePage === 'healing' ? { color: "#E3A76F" } : {}}
+              style={activePage === 'healing' ? getActiveLinkColor() : {}}
               onClick={() => setMobileMenuOpen(false)}
             >
               Healing
@@ -116,17 +136,17 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
               className={`px-4 py-2 hover:bg-orange-50 rounded-md transition-colors font-body ${
                 activePage === 'sacred-house' ? 'bg-orange-50 font-semibold' : ''
               }`}
-              style={activePage === 'sacred-house' ? { color: "#E3A76F" } : {}}
+              style={activePage === 'sacred-house' ? getActiveLinkColor() : {}}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Sacred House
+              Sacred-House
             </Link>
             <Link 
               href="/food" 
               className={`px-4 py-2 hover:bg-orange-50 rounded-md transition-colors font-body ${
                 activePage === 'food' ? 'bg-orange-50 font-semibold' : ''
               }`}
-              style={activePage === 'food' ? { color: "#E3A76F" } : {}}
+              style={activePage === 'food' ? getActiveLinkColor() : {}}
               onClick={() => setMobileMenuOpen(false)}
             >
               Food
@@ -136,7 +156,7 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
               onClick={() => setMobileMenuOpen(false)}
             >
               <Button 
-                style={{ backgroundColor: "#E3A76F", color: "white" }} 
+                style={getButtonBgColor()} 
                 className="mt-2 w-full hover:opacity-90 font-sans"
               >
                 Get in Touch
@@ -147,4 +167,4 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
       )}
     </header>
   );
-} 
+}
