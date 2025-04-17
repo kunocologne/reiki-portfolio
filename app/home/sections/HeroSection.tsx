@@ -39,8 +39,8 @@ export default function HeroSection() {
           </div>
         </div>
         
-        {/* Images Section - Visible on mobile and desktop */}
-        <div className="flex flex-col sm:flex-row lg:flex-row justify-center lg:justify-start items-center gap-3 mt-10 lg:mt-0 w-full lg:w-auto">
+        {/* Images Section - Desktop only */}
+        <div className="hidden sm:flex flex-col sm:flex-row lg:flex-row justify-center lg:justify-start items-center gap-3 mt-10 lg:mt-0 w-full lg:w-auto">
           <div className="w-full sm:w-1/2 lg:w-64 xl:w-72 flex flex-col justify-start items-center lg:items-start gap-3">
             <Image 
               src="/images/home/hero.jpg" 
