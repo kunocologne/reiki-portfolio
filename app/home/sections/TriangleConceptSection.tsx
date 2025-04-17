@@ -3,25 +3,25 @@ import Image from "next/image";
 
 export default function TriangleConceptSection() {
   return (
-    <section className="py-20 bg-[#e3dac2]" id="triangle-concept">
+    <section className="py-12 md:py-20 bg-[#e3dac2]" id="triangle-concept">
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
-        <div className="flex flex-col items-center justify-center mb-16">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-24 h-0.5 bg-orange-300"></div>
-            <h3 className="text-center text-zinc-800 font-medium font-['Work_Sans'] uppercase tracking-[5.60px]">
+        <div className="flex flex-col items-center justify-center mb-10 md:mb-16">
+          <div className="flex items-center gap-2 md:gap-4 mb-4">
+            <div className="hidden sm:block w-12 md:w-24 h-0.5 bg-orange-300"></div>
+            <h3 className="text-center text-zinc-800 text-xs md:text-base font-medium font-['Work_Sans'] uppercase tracking-[3px] md:tracking-[5.60px]">
               MY APPROACH
             </h3>
-            <div className="w-24 h-0.5 bg-orange-300"></div>
+            <div className="hidden sm:block w-12 md:w-24 h-0.5 bg-orange-300"></div>
           </div>
           
-          <h2 className="text-4xl md:text-5xl text-center font-bold font-['Playfair_Display'] text-zinc-800 mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-center font-bold font-['Playfair_Display'] text-zinc-800 mb-6">
             The Three Pillars of Wellness
           </h2>
           
-          <div className="w-24 h-1 bg-orange-300 mb-8"></div>
+          <div className="w-16 md:w-24 h-1 bg-orange-300 mb-6 md:mb-8"></div>
           
-          <p className="text-center max-w-2xl text-zinc-800 text-lg font-['Lora']">
+          <p className="text-center max-w-2xl text-zinc-800 text-base md:text-lg font-['Lora'] px-2">
             My approach addresses the fundamental elements of wellness through these three 
             interconnected pillars. Like a triangle—the strongest shape in nature—these pillars support 
             each other to create a comprehensive foundation for vibrant health and well-being.
@@ -29,8 +29,8 @@ export default function TriangleConceptSection() {
         </div>
 
         {/* Triangle Diagram */}
-        <div className="max-w-md mx-auto mb-20">
-          <div className="bg-white p-8 rounded-xl border-2 border-black flex items-center justify-center">
+        <div className="max-w-xs sm:max-w-sm md:max-w-md mx-auto mb-12 md:mb-20">
+          <div className="bg-white p-4 md:p-8 rounded-xl border-2 border-black flex items-center justify-center">
             <Image 
               src="/images/home/rectangle.png"
               alt="The Three Pillars of Wellness: Mindset, Movement, and Nutrition"

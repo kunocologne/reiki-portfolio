@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -11,7 +11,34 @@ type NavigationProps = {
 
 export function Navigation({ activePage = 'home' }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { theme } = useTheme();
+  
+  // Handle scroll event for adding shadow to navbar when scrolled
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
+  // Close mobile menu when user resizes to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [mobileMenuOpen]);
   
   // Get pillar-specific colors
   const getActiveLinkColor = () => {
@@ -42,12 +69,14 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-sm border-b"
+      className={`sticky top-0 z-50 w-full bg-white/90 backdrop-blur-sm border-b transition-all duration-200 ${
+        scrolled ? 'shadow-md' : ''
+      }`}
       style={{ borderColor: "var(--color-secondary)" }}
     >
-      <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl font-serif tracking-wide">Nathanael Mor</span>
+      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+        <Link href="/" className="flex items-center gap-2 z-10">
+          <span className="text-xl md:text-2xl font-serif tracking-wide">Nathanael Mor</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -91,7 +120,7 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
         </nav>
         
         {/* Mobile Menu Button */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 z-10">
           <Link href="/contact">
             <Button style={getButtonBgColor()} className="hidden md:flex hover:opacity-90 font-sans">
               Get in Touch
@@ -99,8 +128,9 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
           </Link>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-foreground/70 hover:text-foreground transition-colors"
+            className="md:hidden p-2 text-foreground/70 hover:text-foreground transition-colors rounded-full hover:bg-gray-100"
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -108,63 +138,66 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
       </div>
       
       {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-t" style={{ borderColor: "var(--color-secondary)" }}>
-          <nav className="container py-4 flex flex-col space-y-4">
-            <Link 
-              href="/" 
-              className={`px-4 py-2 hover:bg-orange-50 rounded-md transition-colors font-body ${
-                activePage === 'home' ? 'bg-orange-50 font-semibold' : ''
-              }`}
-              style={activePage === 'home' ? getActiveLinkColor() : {}}
-              onClick={() => setMobileMenuOpen(false)}
+      <div 
+        className={`md:hidden fixed inset-0 bg-white z-0 pt-16 transform transition-transform duration-300 ease-in-out ${
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <nav className="container py-6 flex flex-col space-y-4">
+          <Link 
+            href="/" 
+            className={`px-4 py-3 hover:bg-orange-50 rounded-md transition-colors font-body ${
+              activePage === 'home' ? 'bg-orange-50 font-semibold' : ''
+            }`}
+            style={activePage === 'home' ? getActiveLinkColor() : {}}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Home
+          </Link>
+          <Link 
+            href="/healing" 
+            className={`px-4 py-3 hover:bg-orange-50 rounded-md transition-colors font-body ${
+              activePage === 'healing' ? 'bg-orange-50 font-semibold' : ''
+            }`}
+            style={activePage === 'healing' ? getActiveLinkColor() : {}}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Healing
+          </Link>
+          <Link 
+            href="/sacred-house" 
+            className={`px-4 py-3 hover:bg-orange-50 rounded-md transition-colors font-body ${
+              activePage === 'sacred-house' ? 'bg-orange-50 font-semibold' : ''
+            }`}
+            style={activePage === 'sacred-house' ? getActiveLinkColor() : {}}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Sacred-House
+          </Link>
+          <Link 
+            href="/food" 
+            className={`px-4 py-3 hover:bg-orange-50 rounded-md transition-colors font-body ${
+              activePage === 'food' ? 'bg-orange-50 font-semibold' : ''
+            }`}
+            style={activePage === 'food' ? getActiveLinkColor() : {}}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Food
+          </Link>
+          <Link 
+            href="/contact"
+            onClick={() => setMobileMenuOpen(false)}
+            className="mt-4"
+          >
+            <Button 
+              style={getButtonBgColor()} 
+              className="w-full hover:opacity-90 font-sans py-3"
             >
-              Home
-            </Link>
-            <Link 
-              href="/healing" 
-              className={`px-4 py-2 hover:bg-orange-50 rounded-md transition-colors font-body ${
-                activePage === 'healing' ? 'bg-orange-50 font-semibold' : ''
-              }`}
-              style={activePage === 'healing' ? getActiveLinkColor() : {}}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Healing
-            </Link>
-            <Link 
-              href="/sacred-house" 
-              className={`px-4 py-2 hover:bg-orange-50 rounded-md transition-colors font-body ${
-                activePage === 'sacred-house' ? 'bg-orange-50 font-semibold' : ''
-              }`}
-              style={activePage === 'sacred-house' ? getActiveLinkColor() : {}}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Sacred-House
-            </Link>
-            <Link 
-              href="/food" 
-              className={`px-4 py-2 hover:bg-orange-50 rounded-md transition-colors font-body ${
-                activePage === 'food' ? 'bg-orange-50 font-semibold' : ''
-              }`}
-              style={activePage === 'food' ? getActiveLinkColor() : {}}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Food
-            </Link>
-            <Link 
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <Button 
-                style={getButtonBgColor()} 
-                className="mt-2 w-full hover:opacity-90 font-sans"
-              >
-                Get in Touch
-              </Button>
-            </Link>
-          </nav>
-        </div>
-      )}
+              Get in Touch
+            </Button>
+          </Link>
+        </nav>
+      </div>
     </header>
   );
 }
