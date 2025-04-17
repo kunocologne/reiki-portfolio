@@ -34,7 +34,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div className="bg-white p-8 rounded-lg shadow-sm">
-              <h2 className="text-2xl font-serif font-semibold mb-6 text-sage-green">Get in Touch</h2>
+              <h2 className="text-2xl font-serif font-semibold mb-6 text-sage-green">Contact Information</h2>
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
