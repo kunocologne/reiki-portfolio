@@ -3,7 +3,6 @@
 import HeroSection from "./sections/HeroSection";
 import AboutSection from "./sections/AboutSection";
 import TriangleConceptSection from "./sections/TriangleConceptSection";
-import ProjectsSection from "./sections/ProjectsSection";
 import ScrollProgress from "../components/ScrollProgress";
 import SectionTransition from "../components/SectionTransition";
 import BackToTop from "../components/BackToTop";
@@ -32,15 +31,9 @@ export default function HomeContent() {
         <TriangleConceptSection />
       </section>
       
-      {/* Projects Section */}
-      <section className="relative">
-        <SectionTransition fromColor="#E3DAC2" toColor="white" />
-        <ProjectsSection />
-      </section>
-      
       {/* CTA Section */}
       <section className="relative">
-        <SectionTransition fromColor="white" toColor="#E3DAC2" />
+        <SectionTransition fromColor="#E3DAC2" toColor="white" />
         <CtaSection />
       </section>
     </main>
