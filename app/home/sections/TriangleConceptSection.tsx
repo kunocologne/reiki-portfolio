@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function TriangleConceptSection() {
   return (
-    <section className="py-20 md:py-32 bg-[#e3dac2]" id="triangle-concept">
+    <section className="py-20 md:py-32 bg-[#E8D7B7]" id="triangle-concept">
       <div className="container mx-auto px-4 md:px-6 lg:px-10">
         {/* Section Header */}
         <div className="flex flex-col items-center justify-center mb-12 md:mb-20">
@@ -26,38 +26,6 @@ export default function TriangleConceptSection() {
             interconnected pillars. Like a triangle—the strongest shape in nature—these pillars support 
             each other to create a comprehensive foundation for vibrant health and well-being.
           </p>
-        </div>
-
-        {/* Image Grid - Visible on All Screens */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          <Image 
-            src="/images/home/food.jpg" 
-            alt="Nutritious ingredients"
-            width={300}
-            height={200}
-            className="rounded-lg shadow-md object-cover h-40 w-full"
-          />
-          <Image 
-            src="/images/home/mindset.jpg" 
-            alt="Meditation practice"
-            width={300}
-            height={200}
-            className="rounded-lg shadow-md object-cover h-40 w-full"
-          />
-          <Image 
-            src="/images/home/movement.jpg" 
-            alt="Yoga posture"
-            width={300}
-            height={200}
-            className="rounded-lg shadow-md object-cover h-40 w-full hidden md:block"
-          />
-          <Image 
-            src="/images/home/move.jpg" 
-            alt="Balanced nutrition"
-            width={300}
-            height={200}
-            className="rounded-lg shadow-md object-cover h-40 w-full hidden md:block"
-          />
         </div>
 
         {/* Triangle Diagram */}
@@ -85,7 +53,7 @@ export default function TriangleConceptSection() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/0 to-black/60"></div>
-              <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#8B70AC] flex items-center justify-center text-white">
+              <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#BFA8D9] flex items-center justify-center text-white">
                 <span className="text-2xl">✧</span>
               </div>
               <div className="absolute bottom-4 left-4">
@@ -110,7 +78,7 @@ export default function TriangleConceptSection() {
                   {['Meditation and mindfulness', 'Spiritual practices', 'Purpose alignment', 
                     'Emotional well-being techniques', 'Personal growth guidance'].map((item, i) => (
                     <li key={i} className="flex items-start">
-                      <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#8B70AC]"></div>
+                      <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#BFA8D9]"></div>
                       <span className="text-gray-700 text-sm font-['Lora']">{item}</span>
                     </li>
                   ))}
@@ -129,7 +97,7 @@ export default function TriangleConceptSection() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/0 to-black/60"></div>
-              <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#2C7E86] flex items-center justify-center text-white">
+              <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#A8C3A7] flex items-center justify-center text-white">
                 <span className="text-2xl">⟳</span>
               </div>
               <div className="absolute bottom-4 left-4">
@@ -154,7 +122,7 @@ export default function TriangleConceptSection() {
                   {['Personalized movement routines', 'Yoga and stretching guidance', 'Energy flow techniques', 
                     'Physical alignment practices', 'Breathwork integration'].map((item, i) => (
                     <li key={i} className="flex items-start">
-                      <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#2C7E86]"></div>
+                      <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#A8C3A7]"></div>
                       <span className="text-gray-700 text-sm font-['Lora']">{item}</span>
                     </li>
                   ))}
@@ -173,7 +141,7 @@ export default function TriangleConceptSection() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/0 to-black/60"></div>
-              <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#CB8563] flex items-center justify-center text-white">
+              <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#E8D7B7] flex items-center justify-center text-white">
                 <span className="text-2xl">🌱</span>
               </div>
               <div className="absolute bottom-4 left-4">
@@ -198,7 +166,7 @@ export default function TriangleConceptSection() {
                   {['Personalized nutrition plans', 'Food as medicine approach', 'Mindful eating practices', 
                     'Seasonal & local food guidance', 'Healing recipes & meal preparation'].map((item, i) => (
                     <li key={i} className="flex items-start">
-                      <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#CB8563]"></div>
+                      <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#E8D7B7]"></div>
                       <span className="text-gray-700 text-sm font-['Lora']">{item}</span>
                     </li>
                   ))}
