@@ -12,11 +12,11 @@ export default function HeroSection() {
         <div className="flex flex-col justify-start items-start gap-8 md:gap-10 max-w-full lg:max-w-[600px]">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-['Playfair_Display'] leading-tight md:leading-[1.2]">
             <span className="text-[#333333]">Where </span>
-            <span className="text-[#BFA8D9]">Mind</span>
+            <span className="text-[#E3A76F]">Mind</span>
             <span className="text-[#333333]"> Heals, </span>
-            <span className="text-[#A8C3A7]">Energy</span>
+            <span className="text-[#2C7E86]">Energy</span>
             <span className="text-[#333333]"> Moves, and the </span>
-            <span className="text-[#555555]">Body</span>
+            <span className="text-[#8B70AC]">Body</span>
             <span className="text-[#333333]"> Remembers</span>
           </h1>
           
@@ -39,8 +39,8 @@ export default function HeroSection() {
           </div>
         </div>
         
-        {/* Images Section - Desktop only */}
-        <div className="hidden sm:flex flex-col sm:flex-row lg:flex-row justify-center lg:justify-start items-center gap-3 mt-10 lg:mt-0 w-full lg:w-auto">
+        {/* Images Section - For all screen sizes */}
+        <div className="flex flex-col sm:flex-row lg:flex-row justify-center lg:justify-start items-center gap-3 mt-10 lg:mt-0 w-full lg:w-auto">
           <div className="w-full sm:w-1/2 lg:w-64 xl:w-72 flex flex-col justify-start items-center lg:items-start gap-3">
             <Image 
               src="/images/home/hero.jpg" 
@@ -58,7 +58,7 @@ export default function HeroSection() {
             />
           </div>
           
-          <div className="w-full sm:w-1/2 lg:w-72 xl:w-80 flex flex-col justify-start items-center lg:items-start gap-3 hidden sm:flex">
+          <div className="w-full sm:w-1/2 lg:w-72 xl:w-80 flex-col justify-start items-center lg:items-start gap-3 hidden sm:flex">
             <Image 
               src="/images/home/food.jpg" 
               alt="Energy work"
@@ -74,6 +74,17 @@ export default function HeroSection() {
               className="w-full max-w-xs sm:max-w-none h-80 rounded-xl object-cover shadow-md"
             />
           </div>
+        </div>
+        
+        {/* Mobile Image */}
+        <div className="flex sm:hidden w-full justify-center mt-8">
+          <Image 
+            src="/images/home/mindset.jpg" 
+            alt="Mindset - Spiritual Alignment"
+            width={320}
+            height={320}
+            className="w-full max-w-xs h-64 rounded-xl object-cover shadow-md"
+          />
         </div>
       </div>
     </section>
