@@ -122,7 +122,7 @@ export default function FormSection() {
           {/* Contact Form */}
           <div className="bg-gray-50 p-8 rounded-xl shadow-sm">
             <h3 className="text-2xl font-serif font-bold mb-6">Send a Message</h3>
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-6" onSubmit={handleSubmit} action="#" method="POST">
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
@@ -203,6 +203,11 @@ export default function FormSection() {
                   className="w-full py-3 rounded-lg font-medium text-white"
                   style={{ backgroundColor: "#BFA8D9" }}
                   disabled={isSubmitting}
+                  onClick={(e) => {
+                    // Extra safety to ensure the form doesn't redirect
+                    e.preventDefault();
+                    handleSubmit(e as unknown as FormEvent);
+                  }}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
