@@ -57,18 +57,6 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-              
-              <div className="mt-10">
-                <h3 className="text-xl font-serif font-medium mb-4 text-sage-green">Follow Me</h3>
-                <div className="flex space-x-4">
-                  <Link href="https://instagram.com" className="bg-white p-3 rounded-full shadow-sm hover:shadow transition">
-                    <Instagram className="h-5 w-5 text-soft-purple" />
-                  </Link>
-                  <Link href="https://facebook.com" className="bg-white p-3 rounded-full shadow-sm hover:shadow transition">
-                    <Facebook className="h-5 w-5 text-soft-purple" />
-                  </Link>
-                </div>
-              </div>
             </div>
             
             {/* Contact Form */}
