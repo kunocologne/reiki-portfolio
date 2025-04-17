@@ -22,7 +22,7 @@ export default function AboutSection() {
             <div className="w-full px-0 md:px-6 lg:px-10 py-6 md:py-10 flex flex-col lg:flex-row justify-between items-center gap-12 md:gap-16">
               <div className="w-full lg:w-[45%] flex justify-center lg:justify-start">
                 <Image
-                  src="/images/home/portrait-full.jpg"
+                  src="/images/home/journey.jpg"
                   alt="Nathanael Mor"
                   width={597}
                   height={895}
@@ -69,18 +69,20 @@ export default function AboutSection() {
               <div className="w-12 md:w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
             </div>
             
-            <div className="w-full px-0 md:px-6 lg:px-10 py-6 md:py-10 flex flex-col lg:flex-row justify-between items-start gap-10 md:gap-12">
-              <div className="w-full lg:w-[45%] flex justify-center lg:justify-start">
-                <Image
-                  src="/images/home/certifications.jpg"
-                  alt="Nathanael Mor training certificates"
-                  width={595}
-                  height={542}
-                  className="w-full max-w-[500px] h-auto rounded-[20px] object-cover shadow-lg"
-                />
+            <div className="w-full px-0 md:px-6 lg:px-10 py-6 md:py-10 flex flex-col lg:flex-row justify-between items-stretch gap-10 md:gap-12">
+              <div className="w-full lg:w-[45%] flex justify-center lg:justify-start items-stretch">
+                <div className="w-full h-full flex items-center">
+                  <Image
+                    src="/images/home/smile.png"
+                    alt="Nathanael Mor training certificates"
+                    width={595}
+                    height={542}
+                    className="w-full max-w-[500px] h-auto rounded-[20px] object-cover shadow-lg"
+                  />
+                </div>
               </div>
               
-              <div className="w-full lg:w-[55%] flex flex-col justify-start items-stretch gap-4 md:gap-6">
+              <div className="w-full lg:w-[55%] flex flex-col justify-between items-stretch gap-4 md:gap-6">
                 {[
                   "Angel therapy practitioner",
                   "holistic coaching",
@@ -91,9 +93,9 @@ export default function AboutSection() {
                 ].map((certification, index) => (
                   <div 
                     key={index}
-                    className="w-full h-auto p-6 md:p-8 bg-gradient-to-bl from-[#E3A76F] to-[#8B70AC] rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start shadow-md"
+                    className="w-full h-auto p-6 md:p-8 bg-gradient-to-r from-[#E3A76F] via-[#D08D9B] to-[#8B70AC] rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start shadow-md"
                   >
-                    <div className="text-left text-[#333333] text-xl md:text-2xl lg:text-3xl font-medium font-['Work_Sans'] uppercase leading-tight tracking-[3px] md:tracking-[5.60px]">
+                    <div className="text-left text-white text-xl md:text-2xl lg:text-3xl font-medium font-['Work_Sans'] uppercase leading-tight tracking-[3px] md:tracking-[5.60px]">
                       {certification}
                     </div>
                   </div>
