@@ -50,7 +50,8 @@ export default function TriangleConceptSection() {
                 src="/images/home/mindset.jpg"
                 alt="Mindset - Spiritual Alignment"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
+                style={{ objectPosition: "50% 30%" }}
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/0 to-black/60"></div>
               <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#BFA8D9] flex items-center justify-center text-white">
