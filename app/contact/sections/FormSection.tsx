@@ -4,10 +4,8 @@ import { useState, FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
 
 export default function FormSection() {
-  const { toast } = useToast();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -16,6 +14,7 @@ export default function FormSection() {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notification, setNotification] = useState<{type: 'success' | 'error', message: string} | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
@@ -28,13 +27,13 @@ export default function FormSection() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setNotification(null);
 
     // Validate form
     if (!formData.firstName || !formData.email || !formData.message) {
-      toast({
-        title: "Error",
-        description: "Please fill out all required fields.",
-        variant: "destructive"
+      setNotification({
+        type: 'error',
+        message: 'Please fill out all required fields.'
       });
       setIsSubmitting(false);
       return;
@@ -44,16 +43,10 @@ export default function FormSection() {
       // Simulate API call with a delay
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // In a real app, you would send the data to your backend here
-      // const response = await fetch('/api/contact', { 
-      //   method: 'POST', 
-      //   body: JSON.stringify(formData) 
-      // });
-
-      // Success toast
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. We'll get back to you soon.",
+      // Show success message
+      setNotification({
+        type: 'success',
+        message: 'Thank you for your message. We\'ll get back to you soon!'
       });
 
       // Reset form
@@ -65,10 +58,9 @@ export default function FormSection() {
         message: ""
       });
     } catch (error) {
-      toast({
-        title: "Something went wrong",
-        description: "Your message couldn't be sent. Please try again later.",
-        variant: "destructive"
+      setNotification({
+        type: 'error',
+        message: 'Your message couldn\'t be sent. Please try again later.'
       });
     } finally {
       setIsSubmitting(false);
@@ -215,6 +207,12 @@ export default function FormSection() {
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </div>
+              
+              {notification && (
+                <div className={`mt-4 p-4 rounded-lg text-white ${notification.type === 'success' ? 'bg-green-500' : 'bg-red-500'}`}>
+                  {notification.message}
+                </div>
+              )}
             </form>
           </div>
         </div>
