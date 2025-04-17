@@ -10,21 +10,21 @@ export default function AboutSection() {
             {/* Section header */}
             <div className="flex flex-col justify-center items-center gap-5">
               <div className="self-stretch inline-flex justify-center items-center">
-                <div className="w-24 h-0.5 opacity-70 bg-orange-300"></div>
+                <div className="w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
                 <div className="px-8 inline-flex flex-col justify-start items-start">
                   <div className="flex flex-col justify-start items-center">
-                    <div className="text-center justify-center text-zinc-800 text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">About Me</div>
+                    <div className="text-center justify-center text-[#333333] text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">About Me</div>
                   </div>
                 </div>
-                <div className="w-24 h-0.5 opacity-70 bg-orange-300"></div>
+                <div className="w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
               </div>
-              <div className="self-stretch text-center justify-center text-gray-800 text-5xl md:text-7xl font-bold font-['Playfair_Display'] leading-tight md:leading-[72px]">Nathanael Mor</div>
+              <div className="self-stretch text-center justify-center text-[#1F2937] text-5xl md:text-7xl font-bold font-['Playfair_Display'] leading-tight md:leading-[72px]">Nathanael Mor</div>
               <div className="w-full max-w-[873px] mx-auto text-center justify-center text-[#4B5563] text-xl md:text-2xl font-semibold font-['Playfair_Display'] leading-loose [text-shadow:_0px_0px_1px_rgb(255_255_255_/_0.50)]">Holistic Wellness & Healing Coach</div>
             </div>
             
             {/* Main content - Image and Bio */}
             <div className="self-stretch px-4 md:px-10 lg:px-20 py-10 flex flex-col lg:flex-row justify-between items-center gap-10">
-              <div className="w-full lg:w-auto max-w-[597px] flex justify-center">
+              <div className="w-full lg:w-[595px] flex justify-center lg:justify-start">
                 <Image
                   src="/images/home/portrait-full.jpg"
                   alt="Nathanael Mor"
@@ -38,12 +38,12 @@ export default function AboutSection() {
               <div className="w-full lg:w-[610px] inline-flex flex-col justify-start items-start gap-7">
                 <div className="self-stretch inline-flex justify-start items-center">
                   <div className="w-14 h-1 pr-4 inline-flex flex-col justify-start items-start">
-                    <div className="w-10 h-1 bg-orange-300"></div>
+                    <div className="w-10 h-1 bg-[#E3A76F]"></div>
                   </div>
-                  <div className="justify-center text-gray-800 text-2xl font-semibold font-['Playfair_Display'] leading-loose">My Healing Journey</div>
+                  <div className="justify-center text-[#1F2937] text-2xl font-semibold font-['Playfair_Display'] leading-loose">My Healing Journey</div>
                 </div>
                 
-                <div className="self-stretch justify-center text-gray-600 text-base font-normal font-['Lora'] leading-normal">
+                <div className="self-stretch justify-center text-[#4B5563] text-base font-normal font-['Lora'] leading-normal">
                   My path began over three decades ago, shaped by a home where self-inquiry, energy work, and spiritual connection were part of everyday life. I received my first Reiki attunement at age eight and was practicing Qigong by nine—early initiations that gave me a deep sensitivity to energy and the unseen layers of healing.
                   <br/><br/>
                   Rather than growing out of that awareness, I grew into it. I continued learning from teachers across traditions, including a direct student of Hawayo Takata, and developed a way of seeing the world where healing isn't an event—it's a way of being.
@@ -63,13 +63,13 @@ export default function AboutSection() {
           {/* Certifications Section */}
           <div className="w-full max-w-[1295px] flex flex-col justify-start items-start gap-20 mt-10">
             <div className="self-stretch inline-flex justify-center items-center">
-              <div className="w-24 h-0.5 opacity-70 bg-orange-300"></div>
+              <div className="w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
               <div className="px-8 inline-flex flex-col justify-start items-start">
                 <div className="flex flex-col justify-start items-center">
-                  <div className="text-center justify-center text-zinc-800 text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">Trainings & certifications</div>
+                  <div className="text-center justify-center text-[#333333] text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">Trainings & certifications</div>
                 </div>
               </div>
-              <div className="w-24 h-0.5 opacity-70 bg-orange-300"></div>
+              <div className="w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
             </div>
             
             <div className="self-stretch px-4 lg:px-20 py-10 flex flex-col lg:flex-row justify-between items-start gap-10">
@@ -84,28 +84,28 @@ export default function AboutSection() {
               </div>
               
               <div className="w-full lg:w-[660px] inline-flex flex-col justify-start items-start gap-6">
-                <div className="self-stretch h-auto p-6 md:p-10 bg-gradient-to-bl from-orange-300 to-neutral-400 rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start">
-                  <div className="md:text-left text-black text-2xl md:text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">Angel therapy practitioner</div>
+                <div className="self-stretch h-auto p-6 md:p-10 bg-gradient-to-bl from-[#E3A76F] to-[#8B70AC] rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start">
+                  <div className="md:text-left text-[#000000] text-2xl md:text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">Angel therapy practitioner</div>
                 </div>
                 
-                <div className="self-stretch h-auto p-6 md:p-10 bg-gradient-to-bl from-orange-300 to-neutral-400 rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start">
-                  <div className="md:text-left text-zinc-800 text-2xl md:text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">holistic coaching</div>
+                <div className="self-stretch h-auto p-6 md:p-10 bg-gradient-to-bl from-[#E3A76F] to-[#8B70AC] rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start">
+                  <div className="md:text-left text-[#333333] text-2xl md:text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">holistic coaching</div>
                 </div>
                 
-                <div className="self-stretch h-auto p-6 md:p-10 bg-gradient-to-bl from-orange-300 to-neutral-400 rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start">
-                  <div className="md:text-left text-zinc-800 text-2xl md:text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">meditation</div>
+                <div className="self-stretch h-auto p-6 md:p-10 bg-gradient-to-bl from-[#E3A76F] to-[#8B70AC] rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start">
+                  <div className="md:text-left text-[#333333] text-2xl md:text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">meditation</div>
                 </div>
                 
-                <div className="self-stretch h-auto p-6 md:p-10 bg-gradient-to-bl from-orange-300 to-neutral-400 rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start">
-                  <div className="md:text-left text-zinc-800 text-2xl md:text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">nutritional therapy</div>
+                <div className="self-stretch h-auto p-6 md:p-10 bg-gradient-to-bl from-[#E3A76F] to-[#8B70AC] rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start">
+                  <div className="md:text-left text-[#333333] text-2xl md:text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">nutritional therapy</div>
                 </div>
                 
-                <div className="self-stretch h-auto p-6 md:p-10 bg-gradient-to-bl from-orange-300 to-neutral-400 rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start">
-                  <div className="md:text-left text-zinc-800 text-2xl md:text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">SHAMANISM</div>
+                <div className="self-stretch h-auto p-6 md:p-10 bg-gradient-to-bl from-[#E3A76F] to-[#8B70AC] rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start">
+                  <div className="md:text-left text-[#333333] text-2xl md:text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">SHAMANISM</div>
                 </div>
                 
-                <div className="self-stretch h-auto p-6 md:p-10 bg-gradient-to-bl from-orange-300 to-neutral-400 rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start">
-                  <div className="md:text-left text-zinc-800 text-2xl md:text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">TANTRA YOGA INSTRUCTOR</div>
+                <div className="self-stretch h-auto p-6 md:p-10 bg-gradient-to-bl from-[#E3A76F] to-[#8B70AC] rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start">
+                  <div className="md:text-left text-[#333333] text-2xl md:text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">TANTRA YOGA INSTRUCTOR</div>
                 </div>
               </div>
             </div>
