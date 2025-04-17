@@ -1,323 +1,155 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ProjectsSection() {
   return (
-    <section className="py-24 bg-white" id="projects">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="flex flex-col justify-center items-center gap-7 mb-20">
-          <div className="inline-flex justify-center items-center w-full">
-            <div className="w-24 h-0.5 opacity-70 bg-orange-300"></div>
-            <div className="px-8">
-              <h3 className="text-center text-zinc-800 text-3xl font-medium font-['Work_Sans'] uppercase leading-10 tracking-[5.60px]">
-                our projects
-              </h3>
-            </div>
-            <div className="w-24 h-0.5 opacity-70 bg-orange-300"></div>
+    <section className="py-20 md:py-32 bg-white" id="projects">
+      <div className="container mx-auto px-4 md:px-6 lg:px-10">
+        {/* Section Header */}
+        <div className="flex flex-col items-center justify-center mb-12 md:mb-20">
+          <div className="flex items-center gap-2 md:gap-4 mb-4">
+            <div className="hidden sm:block w-12 md:w-24 h-0.5 bg-orange-300"></div>
+            <h3 className="text-center text-zinc-800 text-xs md:text-base font-medium font-['Work_Sans'] uppercase tracking-[3px] md:tracking-[5.60px]">
+              MY PROJECTS
+            </h3>
+            <div className="hidden sm:block w-12 md:w-24 h-0.5 bg-orange-300"></div>
           </div>
           
-          <h2 className="text-center text-gray-800 text-5xl md:text-7xl font-bold font-['Playfair_Display'] leading-tight md:leading-[72px]">
-            Healing, Sacred House & Food
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-center font-bold font-['Playfair_Display'] text-zinc-800 mb-6">
+            Featured Wellness Projects
           </h2>
           
-          <p className="text-center text-orange-300 text-xl md:text-2xl font-normal font-['Playfair_Display'] leading-loose [text-shadow:_0px_0px_1px_rgb(255_255_255_/_0.50)]">
-            Discover how I apply the three pillars of wellness through these specialized offerings, each<br/>
-            designed to nurture a different aspect of your wellbeing journey.
+          <div className="w-16 md:w-24 h-1 bg-orange-300 mb-6 md:mb-8"></div>
+          
+          <p className="text-center max-w-2xl text-zinc-800 text-base md:text-lg font-['Lora'] px-4">
+            Explore my collection of wellness initiatives designed to nurture mind, body, and spirit. 
+            Each project represents my commitment to holistic health and balanced living through 
+            the three pillars of wellness.
           </p>
         </div>
 
-        {/* Pillars Connection Diagram */}
-        <div className="max-w-3xl mx-auto p-8 bg-white rounded-xl shadow-md outline outline-1 outline-black mb-20">
-          <h3 className="text-center text-zinc-800 text-2xl font-bold font-['Playfair_Display'] leading-loose mb-4">
-            How My Projects Connect to the Three Pillars
-          </h3>
-          
-          <p className="text-center text-zinc-800 text-base font-normal font-['Lora'] leading-normal mb-8">
-            Each of my projects and services is directly connected to one of the three pillars of wellness, creating a<br/>
-            comprehensive approach that addresses all aspects of wellbeing.
-          </p>
-          
-          <div className="flex flex-col md:flex-row justify-center items-start gap-6">
-            {/* Mind/Mindset Column */}
-            <div className="w-full md:w-64 relative flex flex-col items-center">
-              <div className="w-12 h-12 bg-[#8B70AC] rounded-full flex items-center justify-center mb-4">
-                <span className="text-white text-xl font-normal leading-7">✧</span>
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          {/* Project Card 1 */}
+          <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div className="relative h-64">
+              <Image
+                src="/images/projects/seasonal-retreats.jpg"
+                alt="Seasonal Wellness Retreats"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/0 to-black/60"></div>
+              <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 rounded-full">
+                <span className="text-sm font-medium text-[#CB8563]">Seasonal Events</span>
               </div>
-              <h4 className="text-[#8B70AC] text-base font-bold font-['Playfair_Display'] leading-normal mb-2">
-                Mind
-              </h4>
-              <p className="text-center text-zinc-800 text-sm font-normal font-['Lora'] leading-tight mb-6">
-                Focuses on spiritual alignment and<br/>mental wellbeing
-              </p>
-              <div className="w-0.5 h-8 bg-[#8B70AC] mb-4"></div>
-              <h5 className="text-[#8B70AC] text-base font-bold font-['Playfair_Display'] leading-normal">
-                Healing Services
-              </h5>
             </div>
             
-            {/* Movement Column */}
-            <div className="w-full md:w-64 relative flex flex-col items-center">
-              <div className="w-12 h-12 bg-[#2C7E86] rounded-full flex items-center justify-center mb-4">
-                <span className="text-white text-xl font-normal leading-7">⟳</span>
-              </div>
-              <h4 className="text-[#2C7E86] text-base font-bold font-['Playfair_Display'] leading-normal mb-2">
-                Movement
-              </h4>
-              <p className="text-center text-zinc-800 text-sm font-normal font-['Lora'] leading-tight mb-6">
-                Emphasizes physical maintenance<br/>and energy flow
+            <div className="p-6 md:p-8">
+              <h3 className="text-xl md:text-2xl font-bold font-['Playfair_Display'] text-zinc-800 mb-3">
+                Seasonal Wellness Retreats
+              </h3>
+              
+              <p className="text-gray-700 font-['Lora'] mb-6">
+                Immersive weekend experiences that align with nature's rhythms. Each season brings unique 
+                opportunities for renewal, reflection, and rejuvenation through practices tailored to the 
+                energetic qualities of the time.
               </p>
-              <div className="w-0.5 h-8 bg-[#2C7E86] mb-4"></div>
-              <h5 className="text-[#2C7E86] text-base font-bold font-['Playfair_Display'] leading-normal">
-                Sacred House
-              </h5>
+              
+              <div className="flex flex-wrap gap-2 mb-6">
+                <span className="px-3 py-1 bg-[#e3dac2]/50 rounded-full text-xs font-medium text-zinc-700">Mindset</span>
+                <span className="px-3 py-1 bg-[#e3dac2]/50 rounded-full text-xs font-medium text-zinc-700">Movement</span>
+                <span className="px-3 py-1 bg-[#e3dac2]/50 rounded-full text-xs font-medium text-zinc-700">Nutrition</span>
+              </div>
+              
+              <Link href="/projects/seasonal-retreats" className="inline-block mt-2 text-[#CB8563] font-medium hover:text-[#b77857] transition-colors">
+                Learn more &rarr;
+              </Link>
+            </div>
+          </div>
+
+          {/* Project Card 2 */}
+          <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div className="relative h-64">
+              <Image
+                src="/images/projects/meditation-program.jpg"
+                alt="30-Day Mindfulness Program"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/0 to-black/60"></div>
+              <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 rounded-full">
+                <span className="text-sm font-medium text-[#8B70AC]">Digital Program</span>
+              </div>
             </div>
             
-            {/* Nutrition Column */}
-            <div className="w-full md:w-64 relative flex flex-col items-center">
-              <div className="w-12 h-12 bg-[#CB8563] rounded-full flex items-center justify-center mb-4">
-                <span className="text-white text-xl font-normal leading-7">🌱</span>
-              </div>
-              <h4 className="text-[#CB8563] text-base font-bold font-['Playfair_Display'] leading-normal mb-2">
-                Nutrition
-              </h4>
-              <p className="text-center text-zinc-800 text-sm font-normal font-['Lora'] leading-tight mb-6">
-                Recognizes food as fundamental to<br/>wellbeing
+            <div className="p-6 md:p-8">
+              <h3 className="text-xl md:text-2xl font-bold font-['Playfair_Display'] text-zinc-800 mb-3">
+                30-Day Mindfulness Program
+              </h3>
+              
+              <p className="text-gray-700 font-['Lora'] mb-6">
+                A comprehensive digital experience guiding participants through daily meditation, 
+                journaling, and mindfulness exercises. Designed to establish lasting habits 
+                that transform mental clarity and emotional balance.
               </p>
-              <div className="w-0.5 h-8 bg-[#CB8563] mb-4"></div>
-              <h5 className="text-[#CB8563] text-base font-bold font-['Playfair_Display'] leading-normal">
-                Sacred Kitchen
-              </h5>
+              
+              <div className="flex flex-wrap gap-2 mb-6">
+                <span className="px-3 py-1 bg-[#e3dac2]/50 rounded-full text-xs font-medium text-zinc-700">Mindset</span>
+                <span className="px-3 py-1 bg-[#e3dac2]/50 rounded-full text-xs font-medium text-zinc-700">Stress Reduction</span>
+              </div>
+              
+              <Link href="/projects/mindfulness-program" className="inline-block mt-2 text-[#8B70AC] font-medium hover:text-[#7a619a] transition-colors">
+                Learn more &rarr;
+              </Link>
+            </div>
+          </div>
+
+          {/* Project Card 3 */}
+          <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div className="relative h-64">
+              <Image
+                src="/images/projects/wellness-kitchen.jpg"
+                alt="Wellness Kitchen Workshops"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/0 to-black/60"></div>
+              <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 rounded-full">
+                <span className="text-sm font-medium text-[#2C7E86]">Workshops</span>
+              </div>
+            </div>
+            
+            <div className="p-6 md:p-8">
+              <h3 className="text-xl md:text-2xl font-bold font-['Playfair_Display'] text-zinc-800 mb-3">
+                Wellness Kitchen Workshops
+              </h3>
+              
+              <p className="text-gray-700 font-['Lora'] mb-6">
+                Hands-on culinary experiences that teach the art of preparing nourishing, 
+                seasonal meals. Participants learn about food as medicine and how to incorporate 
+                healing ingredients into everyday cooking.
+              </p>
+              
+              <div className="flex flex-wrap gap-2 mb-6">
+                <span className="px-3 py-1 bg-[#e3dac2]/50 rounded-full text-xs font-medium text-zinc-700">Nutrition</span>
+                <span className="px-3 py-1 bg-[#e3dac2]/50 rounded-full text-xs font-medium text-zinc-700">Hands-on</span>
+              </div>
+              
+              <Link href="/projects/wellness-kitchen" className="inline-block mt-2 text-[#2C7E86] font-medium hover:text-[#236b72] transition-colors">
+                Learn more &rarr;
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* Project Cards */}
-        <div className="space-y-16">
-          {/* Healing Card */}
-          <div className="bg-white rounded-xl shadow-md outline outline-1 outline-black overflow-hidden flex flex-col md:flex-row">
-            <div className="md:w-1/2 relative">
-              <div className="relative w-full h-[300px] md:h-full">
-                <Image
-                  src="/images/home/healing.jpg"
-                  alt="Healing"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/0"></div>
-              </div>
-            </div>
-            
-            <div className="md:w-1/2 p-8">
-              <div className="pb-4">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-[#8B70AC] rounded-full flex justify-center items-center">
-                    <span className="text-white text-xl">✧</span>
-                  </div>
-                  <span className="text-[#8B70AC] text-sm font-medium font-['Work_Sans'] leading-tight">Mindset</span>
-                </div>
-                <h3 className="text-zinc-800 text-2xl font-bold font-['Playfair_Display'] leading-loose">Healing</h3>
-                <p className="text-gray-600 text-sm font-normal font-['Lora'] leading-tight">Connected to Mind</p>
-              </div>
-              
-              <div className="pt-6">
-                <div className="w-12 h-1 bg-[#8B70AC] mb-6"></div>
-                <p className="text-gray-700 text-base font-normal font-['Lora'] leading-normal mb-8">
-                  Holistic healing services focusing on energy work, spiritual alignment, and
-                  mental well-being. Through Reiki and other healing modalities, I help restore
-                  balance and harmony to your mind, body, and spirit.
-                </p>
-                
-                <div className="mb-8">
-                  <p className="text-zinc-800 text-sm font-normal font-['Work_Sans'] leading-tight mb-8">
-                    The mind pillar focuses on spiritual alignment and mental
-                    wellbeing. My Healing services directly apply these principles
-                    through energy work and mindfulness practices that nurture your
-                    psychological and spiritual health.
-                  </p>
-                  
-                  <div className="grid grid-cols-2 gap-y-4 mb-8">
-                    <div className="flex items-start">
-                      <div className="w-2 h-2 mt-1.5 mr-3 bg-[#8B70AC] rounded-full"></div>
-                      <span className="text-gray-700 text-sm font-normal font-['Lora'] leading-tight">Reiki healing sessions</span>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="w-2 h-2 mt-1.5 mr-3 bg-[#8B70AC] rounded-full"></div>
-                      <span className="text-gray-700 text-sm font-normal font-['Lora'] leading-tight">Energy clearing & balancing</span>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="w-2 h-2 mt-1.5 mr-3 bg-[#8B70AC] rounded-full"></div>
-                      <span className="text-gray-700 text-sm font-normal font-['Lora'] leading-tight">Intuitive guidance</span>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="w-2 h-2 mt-1.5 mr-3 bg-[#8B70AC] rounded-full"></div>
-                      <span className="text-gray-700 text-sm font-normal font-['Lora'] leading-tight">Mindfulness practices</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <Link 
-                  href="/healing" 
-                  className="inline-flex items-center px-4 py-2 border border-[#8B70AC] rounded-md text-[#8B70AC] text-sm font-medium font-['Work_Sans']"
-                >
-                  Learn More
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
-          
-          {/* Sacred House Card */}
-          <div className="bg-white rounded-xl shadow-md outline outline-1 outline-black overflow-hidden flex flex-col md:flex-row-reverse">
-            <div className="md:w-1/2 relative">
-              <div className="relative w-full h-[300px] md:h-full">
-                <Image
-                  src="/images/home/sacred-house.jpg"
-                  alt="Sacred House"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/0"></div>
-              </div>
-            </div>
-            
-            <div className="md:w-1/2 p-8">
-              <div className="pb-4">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-[#2C7E86] rounded-full flex justify-center items-center">
-                    <span className="text-white text-xl">⟳</span>
-                  </div>
-                  <span className="text-[#2C7E86] text-sm font-medium font-['Work_Sans'] leading-tight">Movement</span>
-                </div>
-                <h3 className="text-zinc-800 text-2xl font-bold font-['Playfair_Display'] leading-loose">Sacred House</h3>
-                <p className="text-gray-600 text-sm font-normal font-['Lora'] leading-tight">Connected to Movement</p>
-              </div>
-              
-              <div className="pt-6">
-                <div className="w-12 h-1 bg-[#2C7E86] mb-6"></div>
-                <p className="text-gray-700 text-base font-normal font-['Lora'] leading-normal mb-8">
-                  A sanctuary for movement, connection, and community. Through retreats
-                  and events featuring yoga, meditation, and mindful movement, Sacred House
-                  creates spaces for transformation and growth.
-                </p>
-                
-                <div className="mb-8">
-                  <p className="text-zinc-800 text-sm font-normal font-['Work_Sans'] leading-tight mb-8">
-                    The movement pillar emphasizes physical maintenance and energy
-                    flow. Sacred House brings this pillar to life through communal
-                    spaces dedicated to yoga, intentional movement, and activities
-                    that strengthen the body-mind connection.
-                  </p>
-                  
-                  <div className="grid grid-cols-2 gap-y-4 mb-8">
-                    <div className="flex items-start">
-                      <div className="w-2 h-2 mt-1.5 mr-3 bg-[#2C7E86] rounded-full"></div>
-                      <span className="text-gray-700 text-sm font-normal font-['Lora'] leading-tight">Yoga and movement retreats</span>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="w-2 h-2 mt-1.5 mr-3 bg-[#2C7E86] rounded-full"></div>
-                      <span className="text-gray-700 text-sm font-normal font-['Lora'] leading-tight">Community wellness events</span>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="w-2 h-2 mt-1.5 mr-3 bg-[#2C7E86] rounded-full"></div>
-                      <span className="text-gray-700 text-sm font-normal font-['Lora'] leading-tight">Sacred movement practices</span>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="w-2 h-2 mt-1.5 mr-3 bg-[#2C7E86] rounded-full"></div>
-                      <span className="text-gray-700 text-sm font-normal font-['Lora'] leading-tight">Nature connection experiences</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <Link 
-                  href="/sacred-house" 
-                  className="inline-flex items-center px-4 py-2 border border-[#2C7E86] rounded-md text-[#2C7E86] text-sm font-medium font-['Work_Sans']"
-                >
-                  Learn More
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
-          
-          {/* Sacred Kitchen Card */}
-          <div className="bg-white rounded-xl shadow-md outline outline-1 outline-black overflow-hidden flex flex-col md:flex-row">
-            <div className="md:w-1/2 relative">
-              <div className="relative w-full h-[300px] md:h-full">
-                <Image
-                  src="/images/home/sacred-kitchen.jpg"
-                  alt="Sacred Kitchen"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/0"></div>
-              </div>
-            </div>
-            
-            <div className="md:w-1/2 p-8">
-              <div className="pb-4">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-[#CB8563] rounded-full flex justify-center items-center">
-                    <span className="text-white text-xl">🌱</span>
-                  </div>
-                  <span className="text-[#CB8563] text-sm font-medium font-['Work_Sans'] leading-tight">Nutrition</span>
-                </div>
-                <h3 className="text-zinc-800 text-2xl font-bold font-['Playfair_Display'] leading-loose">Sacred Kitchen</h3>
-                <p className="text-gray-600 text-sm font-normal font-['Lora'] leading-tight">Connected to Nutrition</p>
-              </div>
-              
-              <div className="pt-6">
-                <div className="w-12 h-1 bg-[#CB8563] mb-6"></div>
-                <p className="text-gray-700 text-base font-normal font-['Lora'] leading-normal mb-8">
-                  Holistic food experiences and nutritional wisdom from a chef's perspective.
-                  From microgreens to full culinary experiences, I share how nutrition can be
-                  both healing and delightful.
-                </p>
-                
-                <div className="mb-8">
-                  <p className="text-zinc-800 text-sm font-normal font-['Work_Sans'] leading-tight mb-8">
-                    The nutrition pillar recognizes food as fundamental to wellbeing.
-                    Sacred Kitchen embodies this pillar by providing nourishing
-                    culinary experiences, growing practices, and education about how
-                    food can serve as medicine for the body.
-                  </p>
-                  
-                  <div className="grid grid-cols-2 gap-y-4 mb-8">
-                    <div className="flex items-start">
-                      <div className="w-2 h-2 mt-1.5 mr-3 bg-[#CB8563] rounded-full"></div>
-                      <span className="text-gray-700 text-sm font-normal font-['Lora'] leading-tight">Holistic nutrition guidance</span>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="w-2 h-2 mt-1.5 mr-3 bg-[#CB8563] rounded-full"></div>
-                      <span className="text-gray-700 text-sm font-normal font-['Lora'] leading-tight">Microgreens and organic growing</span>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="w-2 h-2 mt-1.5 mr-3 bg-[#CB8563] rounded-full"></div>
-                      <span className="text-gray-700 text-sm font-normal font-['Lora'] leading-tight">Chef-created healing recipes</span>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="w-2 h-2 mt-1.5 mr-3 bg-[#CB8563] rounded-full"></div>
-                      <span className="text-gray-700 text-sm font-normal font-['Lora'] leading-tight">Food as medicine workshops</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <Link 
-                  href="/sacred-kitchen" 
-                  className="inline-flex items-center px-4 py-2 border border-[#CB8563] rounded-md text-[#CB8563] text-sm font-medium font-['Work_Sans']"
-                >
-                  Learn More
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
+        {/* View All Projects Button */}
+        <div className="mt-12 md:mt-16 text-center">
+          <Link href="/projects">
+            <button className="px-8 py-3 bg-transparent border-2 border-[#CB8563] text-[#CB8563] rounded-lg shadow-md font-medium text-lg transition-all hover:bg-[#CB8563]/10">
+              View All Projects
+            </button>
+          </Link>
         </div>
       </div>
     </section>

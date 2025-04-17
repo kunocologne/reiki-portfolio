@@ -2,16 +2,16 @@
 
 import HeroSection from "./sections/HeroSection";
 import AboutSection from "./sections/AboutSection";
-import CtaSection from "./sections/CtaSection";
-import ProjectsSection from "./sections/ProjectsSection";
 import TriangleConceptSection from "./sections/TriangleConceptSection";
+import ProjectsSection from "./sections/ProjectsSection";
 import ScrollProgress from "../components/ScrollProgress";
 import SectionTransition from "../components/SectionTransition";
 import BackToTop from "../components/BackToTop";
+import CtaSection from "./sections/CtaSection";
 
 export default function HomeContent() {
   return (
-    <main className="min-h-screen bg-[#FAFAFA] overflow-hidden">
+    <main className="overflow-hidden">
       <ScrollProgress />
       <BackToTop />
       
@@ -28,13 +28,13 @@ export default function HomeContent() {
       
       {/* Triangle Concept Section */}
       <section className="relative">
-        <SectionTransition fromColor="white" toColor="#e3dac2" />
+        <SectionTransition fromColor="white" toColor="#E3DAC2" />
         <TriangleConceptSection />
       </section>
       
       {/* Projects Section */}
       <section className="relative">
-        <SectionTransition fromColor="#e3dac2" toColor="white" />
+        <SectionTransition fromColor="#E3DAC2" toColor="white" />
         <ProjectsSection />
       </section>
       
