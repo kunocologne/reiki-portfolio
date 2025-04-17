@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section className="py-32 bg-gradient-to-b from-white via-[#f9f6f3] to-white">
+    <section className="py-32 bg-gradient-to-b from-white via-[#f9f6f3] to-white overflow-x-hidden">
       <div className="container mx-auto px-6 flex flex-col justify-between items-center">
         {/* Section header */}
         <div className="flex flex-col justify-center items-center gap-7 mb-20">

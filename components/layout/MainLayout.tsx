@@ -32,12 +32,12 @@ export function MainLayout({
 
   return (
     <ThemeProvider defaultTheme={getPageTheme()}>
-      <div className="min-h-screen flex flex-col" style={{ backgroundColor: "var(--sand-beige)" }}>
+      <div className="min-h-screen flex flex-col overflow-x-hidden" style={{ backgroundColor: "var(--sand-beige)" }}>
         {/* Navigation */}
         <Navigation activePage={activePage} />
         
         {/* Main Content */}
-        <main className="flex-grow">
+        <main className="flex-grow overflow-x-hidden">
           {children}
         </main>
         
