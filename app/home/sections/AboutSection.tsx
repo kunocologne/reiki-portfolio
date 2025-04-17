@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-b from-white via-[#f9f6f3] to-white overflow-x-hidden">
+    <section className="py-20 md:py-32 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-10">
         <div className="w-full flex flex-col justify-start items-center gap-16 md:gap-20">
           {/* About Me Section */}
@@ -10,25 +10,29 @@ export default function AboutSection() {
             {/* Section header */}
             <div className="flex flex-col justify-center items-center gap-5 md:gap-6">
               <div className="flex items-center justify-center gap-4">
-                <div className="w-12 md:w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
-                <h3 className="text-center text-[#333333] text-sm md:text-lg font-medium font-['Work_Sans'] uppercase tracking-[3px] md:tracking-[5.60px]">About Me</h3>
-                <div className="w-12 md:w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
+                <div className="hidden sm:block w-12 md:w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
+                <h3 className="text-center text-[#333333] text-xs md:text-base font-medium font-['Work_Sans'] uppercase tracking-[3px] md:tracking-[5.60px]">About Me</h3>
+                <div className="hidden sm:block w-12 md:w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
               </div>
-              <h2 className="text-center text-[#1F2937] text-4xl md:text-5xl lg:text-6xl font-bold font-['Playfair_Display'] leading-tight md:leading-[72px]">Nathanael Mor</h2>
-              <div className="w-full max-w-[873px] mx-auto text-center text-[#4B5563] text-xl md:text-2xl font-semibold font-['Playfair_Display'] leading-relaxed">Holistic Wellness & Healing Coach</div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-center font-bold font-['Playfair_Display'] text-[#1F2937] mb-6">Nathanael Mor</h2>
+              <div className="w-16 md:w-24 h-1 bg-[#E3A76F] mx-auto mb-6"></div>
+              <p className="text-center max-w-2xl text-[#4B5563] text-base md:text-lg font-['Lora']">Holistic Wellness & Healing Coach</p>
             </div>
             
             {/* Main content - Image and Bio */}
             <div className="w-full px-0 md:px-6 lg:px-10 py-6 md:py-10 flex flex-col lg:flex-row justify-between items-center gap-12 md:gap-16">
               <div className="w-full lg:w-[45%] flex justify-center lg:justify-start">
-                <Image
-                  src="/images/home/journey.jpg"
-                  alt="Nathanael Mor"
-                  width={597}
-                  height={895}
-                  className="w-full max-w-[500px] h-auto rounded-3xl object-cover shadow-lg"
-                  priority
-                />
+                <div className="w-full max-w-[500px]">
+                  <Image
+                    src="/images/home/journey.jpg"
+                    alt="Nathanael Mor"
+                    width={597}
+                    height={895}
+                    className="w-full h-auto rounded-3xl object-cover shadow-lg"
+                    priority
+                    style={{ maxWidth: "100%", height: "auto" }}
+                  />
+                </div>
               </div>
               
               <div className="w-full lg:w-[55%] flex flex-col justify-start items-start gap-7">
@@ -62,22 +66,23 @@ export default function AboutSection() {
           </div>
           
           {/* Certifications Section */}
-          <div className="w-full max-w-[1295px] flex flex-col justify-start items-center gap-12 md:gap-16">
+          <div className="w-full flex flex-col justify-start items-center gap-12 md:gap-16">
             <div className="flex items-center justify-center gap-4">
-              <div className="w-12 md:w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
-              <h3 className="text-center text-[#333333] text-sm md:text-lg font-medium font-['Work_Sans'] uppercase tracking-[3px] md:tracking-[5.60px]">Trainings & certifications</h3>
-              <div className="w-12 md:w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
+              <div className="hidden sm:block w-12 md:w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
+              <h3 className="text-center text-[#333333] text-xs md:text-base font-medium font-['Work_Sans'] uppercase tracking-[3px] md:tracking-[5.60px]">Trainings & certifications</h3>
+              <div className="hidden sm:block w-12 md:w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
             </div>
             
             <div className="w-full px-0 md:px-6 lg:px-10 py-6 md:py-10 flex flex-col lg:flex-row justify-between items-stretch gap-10 md:gap-12">
               <div className="w-full lg:w-[45%] flex justify-center lg:justify-start items-stretch">
-                <div className="w-full h-full flex items-center">
+                <div className="w-full max-w-[500px]">
                   <Image
                     src="/images/home/smile.png"
                     alt="Nathanael Mor training certificates"
                     width={595}
                     height={542}
-                    className="w-full max-w-[500px] h-auto rounded-[20px] object-cover shadow-lg"
+                    className="w-full h-auto rounded-[20px] object-cover shadow-lg"
+                    style={{ maxWidth: "100%", height: "auto" }}
                   />
                 </div>
               </div>
