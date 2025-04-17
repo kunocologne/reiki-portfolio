@@ -70,8 +70,8 @@ export default function TriangleConceptSection() {
                 unique gifts allow us to thrive.
               </p>
               
-              {/* Key Elements only shown on desktop */}
-              <div className="hidden md:block mt-6">
+              {/* Key Elements shown on all devices */}
+              <div className="mt-6">
                 <h4 className="font-semibold font-['Playfair_Display'] text-lg mb-4">Key Elements:</h4>
                 
                 <ul className="space-y-2">
@@ -114,8 +114,8 @@ export default function TriangleConceptSection() {
                 stretching are essential to sustaining health.
               </p>
               
-              {/* Key Elements only shown on desktop */}
-              <div className="hidden md:block mt-6">
+              {/* Key Elements shown on all devices */}
+              <div className="mt-6">
                 <h4 className="font-semibold font-['Playfair_Display'] text-lg mb-4">Key Elements:</h4>
                 
                 <ul className="space-y-2">
@@ -158,8 +158,8 @@ export default function TriangleConceptSection() {
                 and emotional balance.
               </p>
               
-              {/* Key Elements only shown on desktop */}
-              <div className="hidden md:block mt-6">
+              {/* Key Elements shown on all devices */}
+              <div className="mt-6">
                 <h4 className="font-semibold font-['Playfair_Display'] text-lg mb-4">Key Elements:</h4>
                 
                 <ul className="space-y-2">
