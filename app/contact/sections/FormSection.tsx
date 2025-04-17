@@ -1,8 +1,6 @@
 "use client"
 
 import { useState, FormEvent } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function FormSection() {
@@ -17,50 +15,59 @@ export default function FormSection() {
   const [notification, setNotification] = useState<{type: 'success' | 'error', message: string} | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { id, value } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [id]: value
+      [name]: value
     }));
   };
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setNotification(null);
-
-    // Validate form
+    
+    // Validate required fields
     if (!formData.firstName || !formData.email || !formData.message) {
       setNotification({
         type: 'error',
-        message: 'Please fill out all required fields.'
+        message: 'Please fill in all required fields'
       });
-      setIsSubmitting(false);
       return;
     }
-
+    
+    setIsSubmitting(true);
+    
     try {
-      // Simulate API call with a delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
       
-      // Show success message
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.error || 'Something went wrong');
+      }
+      
+      // Reset form after successful submission
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        service: '',
+        message: ''
+      });
+      
       setNotification({
         type: 'success',
-        message: 'Thank you for your message. We\'ll get back to you soon!'
-      });
-
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        service: "",
-        message: ""
+        message: 'Your message has been sent successfully. We will get back to you soon!'
       });
     } catch (error) {
       setNotification({
         type: 'error',
-        message: 'Your message couldn\'t be sent. Please try again later.'
+        message: error instanceof Error ? error.message : 'Failed to send message. Please try again.'
       });
     } finally {
       setIsSubmitting(false);
@@ -69,14 +76,14 @@ export default function FormSection() {
 
   return (
     <section className="py-16 bg-white">
-      <div className="container">
+      <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Contact Information */}
           <div>
             <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Get In Touch</h2>
             <p className="text-lg mb-8">
               I'm here to answer any questions you might have about my services, upcoming events,
-              or how we can work together on your healing journey.
+              or how we can work together on your wellness journey.
             </p>
             
             <div className="space-y-6">
@@ -99,21 +106,8 @@ export default function FormSection() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg">Phone</h3>
-                  <p className="text-gray-600">+351 915 274 280</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
-                <div className="bg-purple-100 p-3 rounded-full" style={{ color: "#BFA8D9" }}>
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg">Sacred House Location</h3>
-                  <p className="text-gray-600">123 Healing Way, Serenity Valley, CA 94123</p>
+                  <h3 className="font-bold text-lg">WhatsApp</h3>
+                  <p className="text-gray-600">+972 52-461-0111</p>
                 </div>
               </div>
             </div>
@@ -122,15 +116,16 @@ export default function FormSection() {
           {/* Contact Form */}
           <div className="bg-gray-50 p-8 rounded-xl shadow-sm">
             <h3 className="text-2xl font-serif font-bold mb-6">Send a Message</h3>
-            <form className="space-y-6" onSubmit={handleSubmit} action="#" method="POST">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
-                    First Name *
+                    First Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
                     id="firstName"
+                    name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-200"
@@ -144,6 +139,7 @@ export default function FormSection() {
                   <input
                     type="text"
                     id="lastName"
+                    name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-200"
@@ -153,11 +149,12 @@ export default function FormSection() {
               
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email *
+                  Email <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-200"
@@ -171,24 +168,26 @@ export default function FormSection() {
                 </label>
                 <select
                   id="service"
+                  name="service"
                   value={formData.service}
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-200"
                 >
                   <option value="">Select a service</option>
-                  <option value="healing">Energy Healing</option>
-                  <option value="retreat">Sacred House Retreats</option>
-                  <option value="nutrition">Food & Nutrition</option>
-                  <option value="other">Other</option>
+                  <option value="Mindset Coaching">Mindset Coaching</option>
+                  <option value="Movement Guidance">Movement Guidance</option>
+                  <option value="Nutrition Consultation">Nutrition Consultation</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Message *
+                  Message <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
@@ -203,11 +202,6 @@ export default function FormSection() {
                   className="w-full py-3 rounded-lg font-medium text-white"
                   style={{ backgroundColor: "#BFA8D9" }}
                   disabled={isSubmitting}
-                  onClick={(e) => {
-                    // Extra safety to ensure the form doesn't redirect
-                    e.preventDefault();
-                    handleSubmit(e as unknown as FormEvent);
-                  }}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
