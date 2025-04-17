@@ -11,32 +11,38 @@ import BackToTop from "../components/BackToTop";
 
 export default function HomeContent() {
   return (
-    <main className="min-h-screen bg-[#FAFAFA]">
+    <main className="min-h-screen bg-[#FAFAFA] overflow-hidden">
       <ScrollProgress />
       <BackToTop />
       
-      {/* Main content */}
-      <HeroSection />
+      {/* Hero Section */}
+      <section className="relative">
+        <HeroSection />
+      </section>
       
-      <div className="relative">
-        <SectionTransition fromColor="transparent" toColor="white" />
+      {/* About Section */}
+      <section className="relative">
+        <SectionTransition fromColor="#E3DAC2" toColor="white" />
         <AboutSection />
-      </div>
+      </section>
       
-      <div className="relative">
-        <SectionTransition fromColor="white" toColor="#F5F3EE" />
+      {/* Triangle Concept Section */}
+      <section className="relative">
+        <SectionTransition fromColor="white" toColor="#e3dac2" />
         <TriangleConceptSection />
-      </div>
+      </section>
       
-      <div className="relative">
-        <SectionTransition fromColor="#F5F3EE" toColor="white" />
+      {/* Projects Section */}
+      <section className="relative">
+        <SectionTransition fromColor="#e3dac2" toColor="white" />
         <ProjectsSection />
-      </div>
+      </section>
       
-      <div className="relative">
-        <SectionTransition fromColor="transparent" toColor="#E3DAC2" />
+      {/* CTA Section */}
+      <section className="relative">
+        <SectionTransition fromColor="white" toColor="#E3DAC2" />
         <CtaSection />
-      </div>
+      </section>
     </main>
   );
 } 

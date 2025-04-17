@@ -3,10 +3,10 @@ import Image from "next/image";
 
 export default function TriangleConceptSection() {
   return (
-    <section className="py-12 md:py-20 bg-[#e3dac2]" id="triangle-concept">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="py-20 md:py-32 bg-[#e3dac2]" id="triangle-concept">
+      <div className="container mx-auto px-4 md:px-6 lg:px-10">
         {/* Section Header */}
-        <div className="flex flex-col items-center justify-center mb-10 md:mb-16">
+        <div className="flex flex-col items-center justify-center mb-12 md:mb-20">
           <div className="flex items-center gap-2 md:gap-4 mb-4">
             <div className="hidden sm:block w-12 md:w-24 h-0.5 bg-orange-300"></div>
             <h3 className="text-center text-zinc-800 text-xs md:text-base font-medium font-['Work_Sans'] uppercase tracking-[3px] md:tracking-[5.60px]">
@@ -21,7 +21,7 @@ export default function TriangleConceptSection() {
           
           <div className="w-16 md:w-24 h-1 bg-orange-300 mb-6 md:mb-8"></div>
           
-          <p className="text-center max-w-2xl text-zinc-800 text-base md:text-lg font-['Lora'] px-2">
+          <p className="text-center max-w-2xl text-zinc-800 text-base md:text-lg font-['Lora'] px-4">
             My approach addresses the fundamental elements of wellness through these three 
             interconnected pillars. Like a triangle—the strongest shape in nature—these pillars support 
             each other to create a comprehensive foundation for vibrant health and well-being.
@@ -29,7 +29,7 @@ export default function TriangleConceptSection() {
         </div>
 
         {/* Triangle Diagram */}
-        <div className="max-w-xs sm:max-w-sm md:max-w-md mx-auto mb-12 md:mb-20">
+        <div className="max-w-xs sm:max-w-sm md:max-w-md mx-auto mb-16 md:mb-24">
           <div className="bg-white p-4 md:p-8 rounded-xl border-2 border-black flex items-center justify-center">
             <Image 
               src="/images/home/rectangle.png"
@@ -42,7 +42,7 @@ export default function TriangleConceptSection() {
         </div>
 
         {/* Three Pillar Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
           {/* Mindset Card */}
           <div className="bg-white rounded-xl overflow-hidden shadow-lg">
             <div className="relative h-56">
