@@ -4,14 +4,12 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import { ChevronDown } from 'lucide-react'
 
 type NavigationProps = {
   activePage?: 'home' | 'healing' | 'sacred-house' | 'food' | 'contact'
 }
 
 export function Navigation({ activePage }: NavigationProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [hasScrolled, setHasScrolled] = useState(false)
 
   // Handle scroll effect for adding shadow to navbar
@@ -23,43 +21,21 @@ export function Navigation({ activePage }: NavigationProps) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Get the right color based on the active page
-  const getActiveColor = () => {
-    switch (activePage) {
-      case 'healing':
-        return '#BFA8D9' // Purple for healing
-      case 'sacred-house':
-        return '#A8C3A7' // Green for sacred house
-      case 'food':
-        return '#E3A76F' // Orange for food
-      case 'contact':
-        return '#E3A76F' // Orange for contact
-      default:
-        return '#A8A29E' // Default stone color
-    }
-  }
-
+  // Get button color based on the active page
   const getButtonBgColor = () => {
     switch (activePage) {
       case 'healing':
-        return 'bg-violet-500/20 hover:bg-violet-500/30'
+        return { backgroundColor: "#BFA8D9", color: "white" };
       case 'sacred-house':
-        return 'bg-green-500/20 hover:bg-green-500/30'
+        return { backgroundColor: "#A8C3A7", color: "white" };
       case 'food':
-        return 'bg-amber-500/20 hover:bg-amber-500/30'
+        return { backgroundColor: "#E3A76F", color: "white" };
       case 'contact':
-        return 'bg-amber-500/20 hover:bg-amber-500/30'
+        return { backgroundColor: "#E3A76F", color: "white" };
       default:
-        return 'bg-stone-500/20 hover:bg-stone-500/30'
+        return { backgroundColor: "#E8D7B7", color: "white" };
     }
-  }
-
-  const activeColor = getActiveColor()
-  const buttonBgColor = getButtonBgColor()
-
-  // Simplified rgba background styles
-  const bgOpacity02 = { backgroundColor: `${activeColor}33` } // 20% opacity
-  const bgOpacity01 = { backgroundColor: `${activeColor}1A` } // 10% opacity
+  };
 
   return (
     <header
@@ -75,23 +51,14 @@ export function Navigation({ activePage }: NavigationProps) {
           </Link>
 
           <div className="flex items-center gap-4">
-            <Button 
-              asChild 
-              variant="outline" 
-              size="sm"
-              className={cn(
-                "rounded-full font-medium transition-all duration-300",
-                buttonBgColor
-              )}
-              style={{ 
-                borderColor: activeColor,
-                color: activeColor
-              }}
-            >
-              <Link href="/contact">
-                Contact
-              </Link>
-            </Button>
+            <Link href="/contact">
+              <Button 
+                style={getButtonBgColor()} 
+                className="hover:opacity-90 font-sans text-sm"
+              >
+                Get in Touch
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
