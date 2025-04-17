@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function TriangleConceptSection() {
   return (
-    <section className="py-20 md:py-32 bg-[#E8D7B7]" id="triangle-concept">
+    <section className="py-20 md:py-32 bg-[#E3DAC2]" id="triangle-concept">
       <div className="container mx-auto px-4 md:px-6 lg:px-10">
         {/* Section Header */}
         <div className="flex flex-col items-center justify-center mb-12 md:mb-20">
@@ -91,7 +91,7 @@ export default function TriangleConceptSection() {
           <div className="bg-white rounded-xl overflow-hidden shadow-lg">
             <div className="relative h-56">
               <Image
-                src="/images/pillars/movement.jpg"
+                src="/images/home/movement.jpg"
                 alt="Movement - Physical Maintenance"
                 fill
                 className="object-cover"
