@@ -28,6 +28,38 @@ export default function TriangleConceptSection() {
           </p>
         </div>
 
+        {/* Image Grid - Visible on All Screens */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          <Image 
+            src="/images/home/food.jpg" 
+            alt="Nutritious ingredients"
+            width={300}
+            height={200}
+            className="rounded-lg shadow-md object-cover h-40 w-full"
+          />
+          <Image 
+            src="/images/home/mindset.jpg" 
+            alt="Meditation practice"
+            width={300}
+            height={200}
+            className="rounded-lg shadow-md object-cover h-40 w-full"
+          />
+          <Image 
+            src="/images/home/movement.jpg" 
+            alt="Yoga posture"
+            width={300}
+            height={200}
+            className="rounded-lg shadow-md object-cover h-40 w-full hidden md:block"
+          />
+          <Image 
+            src="/images/home/move.jpg" 
+            alt="Balanced nutrition"
+            width={300}
+            height={200}
+            className="rounded-lg shadow-md object-cover h-40 w-full hidden md:block"
+          />
+        </div>
+
         {/* Triangle Diagram */}
         <div className="max-w-xs sm:max-w-sm md:max-w-md mx-auto mb-16 md:mb-24">
           <div className="bg-white p-4 md:p-8 rounded-xl border-2 border-black flex items-center justify-center">
@@ -47,7 +79,7 @@ export default function TriangleConceptSection() {
           <div className="bg-white rounded-xl overflow-hidden shadow-lg">
             <div className="relative h-56">
               <Image
-                src="/images/pillars/mindset.jpg"
+                src="/images/home/mindset.jpg"
                 alt="Mindset - Spiritual Alignment"
                 fill
                 className="object-cover"
@@ -62,36 +94,27 @@ export default function TriangleConceptSection() {
               </div>
             </div>
             
-            <div className="p-6">
-              <p className="text-gray-700 font-['Lora'] mb-6">
+            <div className="p-6 md:p-8">
+              <p className="text-gray-700 font-['Lora']">
                 Our thoughts shape our reality. Joy, gratitude, 
                 and connection to our purpose fuel the soul. 
                 Recognizing the magic in life and embracing our 
                 unique gifts allow us to thrive.
               </p>
               
-              <h4 className="font-semibold font-['Playfair_Display'] text-lg mb-4">Key Elements:</h4>
-              
-              <ul className="space-y-2 mb-6">
-                {['Meditation and mindfulness', 'Spiritual practices', 'Purpose alignment', 
-                  'Emotional well-being techniques', 'Personal growth guidance'].map((item, i) => (
-                  <li key={i} className="flex items-start">
-                    <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#8B70AC]"></div>
-                    <span className="text-gray-700 text-sm font-['Lora']">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <div className="border-t border-gray-100 pt-4">
-                <Link 
-                  href="/mindset" 
-                  className="flex items-center justify-center text-[#8B70AC] text-sm font-medium font-['Work_Sans'] border border-[#8B70AC] rounded-md py-2 px-4"
-                >
-                  Learn More About Mindset
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
+              {/* Key Elements only shown on desktop */}
+              <div className="hidden md:block mt-6">
+                <h4 className="font-semibold font-['Playfair_Display'] text-lg mb-4">Key Elements:</h4>
+                
+                <ul className="space-y-2">
+                  {['Meditation and mindfulness', 'Spiritual practices', 'Purpose alignment', 
+                    'Emotional well-being techniques', 'Personal growth guidance'].map((item, i) => (
+                    <li key={i} className="flex items-start">
+                      <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#8B70AC]"></div>
+                      <span className="text-gray-700 text-sm font-['Lora']">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
@@ -115,36 +138,27 @@ export default function TriangleConceptSection() {
               </div>
             </div>
             
-            <div className="p-6">
-              <p className="text-gray-700 font-['Lora'] mb-6">
+            <div className="p-6 md:p-8">
+              <p className="text-gray-700 font-['Lora']">
                 Just as a car needs regular care, our body 
                 requires movement. Strength, flexibility, and 
                 energy flow through exercise, yoga, and 
                 stretching are essential to sustaining health.
               </p>
               
-              <h4 className="font-semibold font-['Playfair_Display'] text-lg mb-4">Key Elements:</h4>
-              
-              <ul className="space-y-2 mb-6">
-                {['Personalized movement routines', 'Yoga and stretching guidance', 'Energy flow techniques', 
-                  'Physical alignment practices', 'Breathwork integration'].map((item, i) => (
-                  <li key={i} className="flex items-start">
-                    <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#2C7E86]"></div>
-                    <span className="text-gray-700 text-sm font-['Lora']">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <div className="border-t border-gray-100 pt-4">
-                <Link 
-                  href="/sacred-house" 
-                  className="flex items-center justify-center text-[#2C7E86] text-sm font-medium font-['Work_Sans'] border border-[#2C7E86] rounded-md py-2 px-4"
-                >
-                  Learn More About Movement
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
+              {/* Key Elements only shown on desktop */}
+              <div className="hidden md:block mt-6">
+                <h4 className="font-semibold font-['Playfair_Display'] text-lg mb-4">Key Elements:</h4>
+                
+                <ul className="space-y-2">
+                  {['Personalized movement routines', 'Yoga and stretching guidance', 'Energy flow techniques', 
+                    'Physical alignment practices', 'Breathwork integration'].map((item, i) => (
+                    <li key={i} className="flex items-start">
+                      <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#2C7E86]"></div>
+                      <span className="text-gray-700 text-sm font-['Lora']">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
@@ -153,7 +167,7 @@ export default function TriangleConceptSection() {
           <div className="bg-white rounded-xl overflow-hidden shadow-lg">
             <div className="relative h-56">
               <Image
-                src="/images/pillars/nutrition.jpg"
+                src="/images/home/food.jpg"
                 alt="Nutrition - Fuel for the Body"
                 fill
                 className="object-cover"
@@ -168,36 +182,27 @@ export default function TriangleConceptSection() {
               </div>
             </div>
             
-            <div className="p-6">
-              <p className="text-gray-700 font-['Lora'] mb-6">
+            <div className="p-6 md:p-8">
+              <p className="text-gray-700 font-['Lora']">
                 What we eat is the foundation of our physical, 
                 mental, and spiritual health. Food is medicine, 
                 and mindful nutrition supports longevity, vitality, 
                 and emotional balance.
               </p>
               
-              <h4 className="font-semibold font-['Playfair_Display'] text-lg mb-4">Key Elements:</h4>
-              
-              <ul className="space-y-2 mb-6">
-                {['Personalized nutrition plans', 'Food as medicine approach', 'Mindful eating practices', 
-                  'Seasonal & local food guidance', 'Healing recipes & meal preparation'].map((item, i) => (
-                  <li key={i} className="flex items-start">
-                    <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#CB8563]"></div>
-                    <span className="text-gray-700 text-sm font-['Lora']">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <div className="border-t border-gray-100 pt-4">
-                <Link 
-                  href="/nutrition" 
-                  className="flex items-center justify-center text-[#CB8563] text-sm font-medium font-['Work_Sans'] border border-[#CB8563] rounded-md py-2 px-4"
-                >
-                  Learn More About Nutrition
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
+              {/* Key Elements only shown on desktop */}
+              <div className="hidden md:block mt-6">
+                <h4 className="font-semibold font-['Playfair_Display'] text-lg mb-4">Key Elements:</h4>
+                
+                <ul className="space-y-2">
+                  {['Personalized nutrition plans', 'Food as medicine approach', 'Mindful eating practices', 
+                    'Seasonal & local food guidance', 'Healing recipes & meal preparation'].map((item, i) => (
+                    <li key={i} className="flex items-start">
+                      <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#CB8563]"></div>
+                      <span className="text-gray-700 text-sm font-['Lora']">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
