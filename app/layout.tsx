@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
+import { Toaster } from '@/components/ui/toaster'
 
 const playfair = Playfair_Display({ 
   subsets: ['latin'],
@@ -58,6 +59,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen overflow-x-hidden">
         {children}
+        <Toaster />
       </body>
     </html>
   )

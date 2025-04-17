@@ -1,8 +1,80 @@
+"use client"
+
+import { useState, FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 export default function FormSection() {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    service: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Validate form
+    if (!formData.firstName || !formData.email || !formData.message) {
+      toast({
+        title: "Error",
+        description: "Please fill out all required fields.",
+        variant: "destructive"
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      // Simulate API call with a delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // In a real app, you would send the data to your backend here
+      // const response = await fetch('/api/contact', { 
+      //   method: 'POST', 
+      //   body: JSON.stringify(formData) 
+      // });
+
+      // Success toast
+      toast({
+        title: "Message sent!",
+        description: "Thank you for your message. We'll get back to you soon.",
+      });
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        service: "",
+        message: ""
+      });
+    } catch (error) {
+      toast({
+        title: "Something went wrong",
+        description: "Your message couldn't be sent. Please try again later.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="py-16 bg-white">
       <div className="container">
@@ -24,7 +96,7 @@ export default function FormSection() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Email</h3>
-                  <p className="text-gray-600">contact@nathanel.com</p>
+                  <p className="text-gray-600">nathanaelmor@gmail.com</p>
                 </div>
               </div>
               
@@ -36,7 +108,7 @@ export default function FormSection() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Phone</h3>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
+                  <p className="text-gray-600">+351 915 274 280</p>
                 </div>
               </div>
               
@@ -58,52 +130,58 @@ export default function FormSection() {
           {/* Contact Form */}
           <div className="bg-gray-50 p-8 rounded-xl shadow-sm">
             <h3 className="text-2xl font-serif font-bold mb-6">Send a Message</h3>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="first-name" className="block text-sm font-medium text-gray-700 mb-1">
-                    First Name
+                  <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
+                    First Name *
                   </label>
                   <input
                     type="text"
-                    id="first-name"
+                    id="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-200"
                     required
                   />
                 </div>
                 <div>
-                  <label htmlFor="last-name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
                     Last Name
                   </label>
                   <input
                     type="text"
-                    id="last-name"
+                    id="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-200"
-                    required
                   />
                 </div>
               </div>
               
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email
+                  Email *
                 </label>
                 <input
                   type="email"
                   id="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-200"
                   required
                 />
               </div>
               
               <div>
-                <label htmlFor="services" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">
                   I'm interested in
                 </label>
                 <select
-                  id="services"
+                  id="service"
+                  value={formData.service}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-200"
-                  required
                 >
                   <option value="">Select a service</option>
                   <option value="healing">Energy Healing</option>
@@ -115,11 +193,13 @@ export default function FormSection() {
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Message
+                  Message *
                 </label>
                 <textarea
                   id="message"
                   rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-200"
                   required
                 ></textarea>
@@ -130,8 +210,9 @@ export default function FormSection() {
                   type="submit" 
                   className="w-full py-3 rounded-lg font-medium text-white"
                   style={{ backgroundColor: "#BFA8D9" }}
+                  disabled={isSubmitting}
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </div>
             </form>
