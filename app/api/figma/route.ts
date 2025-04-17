@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
-// Use the same API key as the MCP
-const FIGMA_API_KEY = process.env.FIGMA_API_KEY || 'figd_ki_V_SEQg05BjIlpIbnCoXWw29bQiqL492RqEkZh';
+// Use environment variable only
+const FIGMA_API_KEY = process.env.FIGMA_API_KEY || '';
 const FIGMA_API_BASE = 'https://api.figma.com/v1';
 
 export async function GET(request: Request) {
@@ -11,6 +11,10 @@ export async function GET(request: Request) {
   
   if (!fileKey) {
     return NextResponse.json({ error: 'Missing fileKey' }, { status: 400 });
+  }
+
+  if (!FIGMA_API_KEY) {
+    return NextResponse.json({ error: 'Figma API key is not set' }, { status: 500 });
   }
   
   try {

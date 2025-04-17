@@ -3,10 +3,19 @@ const fs = require('fs');
 
 const fileKey = '3gU1Cy5rHbFRzlyoibzMjU';
 const workshopNodeId = '31:480'; // Heart Centered Workshops frame ID
-const FIGMA_API_KEY = 'figd_d3wn-2jPYzd-MJjv2RKEcUv0EcMLV6f9DC2uZKQ0';
+
+// Important: Use environment variable instead of hardcoded API key
+// Set this with: FIGMA_API_KEY=your_key node figma-api-test.js
+const FIGMA_API_KEY = process.env.FIGMA_API_KEY || '';
 const FIGMA_API_BASE = 'https://api.figma.com/v1';
 
 function getFigmaFile() {
+  if (!FIGMA_API_KEY) {
+    console.error('Error: FIGMA_API_KEY environment variable is not set');
+    console.error('Usage: FIGMA_API_KEY=your_key node figma-api-test.js');
+    process.exit(1);
+  }
+  
   const options = {
     hostname: 'api.figma.com',
     path: `/v1/files/${fileKey}`,

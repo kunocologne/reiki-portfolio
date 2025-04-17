@@ -3,7 +3,7 @@ import type {
   Node
 } from '@figma/rest-api-spec';
 
-const FIGMA_API_KEY = process.env.NEXT_PUBLIC_FIGMA_API_KEY || 'figd_ki_V_SEQg05BjIlpIbnCoXWw29bQiqL492RqEkZh';
+const FIGMA_API_KEY = process.env.NEXT_PUBLIC_FIGMA_API_KEY || '';
 const FIGMA_API_BASE = 'https://api.figma.com/v1';
 
 export interface FigmaImage {
@@ -16,6 +16,10 @@ export interface FigmaImage {
  * Get file data from Figma API
  */
 export async function getFigmaFile(fileKey: string): Promise<GetFileResponse> {
+  if (!FIGMA_API_KEY) {
+    throw new Error('Figma API key is not set');
+  }
+
   const response = await fetch(`${FIGMA_API_BASE}/files/${fileKey}`, {
     headers: {
       'X-Figma-Token': FIGMA_API_KEY
@@ -33,6 +37,10 @@ export async function getFigmaFile(fileKey: string): Promise<GetFileResponse> {
  * Get image URLs for nodes from Figma API
  */
 export async function getFigmaImages(fileKey: string, nodeIds: string[]): Promise<Record<string, string>> {
+  if (!FIGMA_API_KEY) {
+    throw new Error('Figma API key is not set');
+  }
+
   const response = await fetch(`${FIGMA_API_BASE}/images/${fileKey}?ids=${nodeIds.join(',')}&format=png`, {
     headers: {
       'X-Figma-Token': FIGMA_API_KEY
