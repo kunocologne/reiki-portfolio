@@ -39,39 +39,39 @@ export default function HeroSection() {
           </div>
         </div>
         
-        {/* Right Content - Images (desktop only) */}
-        <div className="hidden lg:flex justify-start items-center gap-3 mt-10 lg:mt-0">
-          <div className="w-64 xl:w-72 flex flex-col justify-start items-start gap-3">
+        {/* Images Section - Visible on mobile and desktop */}
+        <div className="flex flex-col sm:flex-row lg:flex-row justify-center lg:justify-start items-center gap-3 mt-10 lg:mt-0 w-full lg:w-auto">
+          <div className="w-full sm:w-1/2 lg:w-64 xl:w-72 flex flex-col justify-start items-center lg:items-start gap-3">
             <Image 
               src="/images/home/hero.jpg" 
               alt="Wellness journey"
               width={280}
               height={351}
-              className="w-full h-80 rounded-xl object-cover shadow-md"
+              className="w-full max-w-xs sm:max-w-none h-64 lg:h-80 rounded-xl object-cover shadow-md"
             />
             <Image 
               src="/images/home/move.jpg" 
               alt="Holistic wellness"
               width={280}
               height={177}
-              className="w-full h-44 rounded-xl object-cover shadow-md"
+              className="w-full max-w-xs sm:max-w-none h-44 rounded-xl object-cover shadow-md hidden sm:block"
             />
           </div>
           
-          <div className="w-72 xl:w-80 flex flex-col justify-start items-start gap-3">
+          <div className="w-full sm:w-1/2 lg:w-72 xl:w-80 flex flex-col justify-start items-center lg:items-start gap-3 hidden sm:flex">
             <Image 
               src="/images/home/food.jpg" 
               alt="Energy work"
               width={344}
               height={213}
-              className="w-full h-52 rounded-xl object-cover shadow-md"
+              className="w-full max-w-xs sm:max-w-none h-52 rounded-xl object-cover shadow-md"
             />
             <Image 
               src="/images/home/movement.jpg" 
               alt="Movement practice"
               width={320}
               height={320}
-              className="w-full h-80 rounded-xl object-cover shadow-md"
+              className="w-full max-w-xs sm:max-w-none h-80 rounded-xl object-cover shadow-md"
             />
           </div>
         </div>

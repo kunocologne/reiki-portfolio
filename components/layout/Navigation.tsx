@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
+import { Menu, X } from 'lucide-react'
 
 type NavigationProps = {
   activePage?: 'home' | 'healing' | 'sacred-house' | 'food' | 'contact'
@@ -11,6 +12,7 @@ type NavigationProps = {
 
 export function Navigation({ activePage }: NavigationProps) {
   const [hasScrolled, setHasScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   // Handle scroll effect for adding shadow to navbar
   useEffect(() => {
@@ -20,6 +22,17 @@ export function Navigation({ activePage }: NavigationProps) {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Close mobile menu when user resizes to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && mobileMenuOpen) {
+        setMobileMenuOpen(false)
+      }
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [mobileMenuOpen])
 
   // Get button color based on the active page
   const getButtonBgColor = () => {
@@ -51,16 +64,47 @@ export function Navigation({ activePage }: NavigationProps) {
           </Link>
 
           <div className="flex items-center gap-4">
-            <Link href="/contact">
-              <Button 
-                style={getButtonBgColor()} 
-                className="hover:opacity-90 font-sans text-sm"
-              >
-                Get in Touch
-              </Button>
-            </Link>
+            {/* Desktop Contact Button */}
+            <div className="hidden md:block">
+              <Link href="/contact">
+                <Button 
+                  style={getButtonBgColor()} 
+                  className="hover:opacity-90 font-sans text-sm"
+                >
+                  Get in Touch
+                </Button>
+              </Link>
+            </div>
+            
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 text-gray-700 hover:text-gray-900 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
+        
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-b shadow-sm" style={{ borderColor: "#f8f8f8" }}>
+            <div className="py-4 px-4">
+              <Link 
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Button 
+                  style={getButtonBgColor()} 
+                  className="w-full hover:opacity-90 font-sans text-sm"
+                >
+                  Get in Touch
+                </Button>
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   )
