@@ -63,7 +63,10 @@ export default function ContactPage() {
             <div className="bg-white p-8 rounded-lg shadow-sm">
               <h2 className="text-2xl font-serif font-semibold mb-6 text-soft-purple">Send a Message</h2>
               
-              <form className="space-y-6">
+              <form action="https://formspree.io/f/xleqbypd" method="POST" className="space-y-6">
+                <input type="hidden" name="_subject" value="New contact from website" />
+                <input type="hidden" name="_replyto" value="%email%" />
+                
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-1">
                     Name
@@ -116,7 +119,7 @@ export default function ContactPage() {
                   ></textarea>
                 </div>
                 
-                <Button variant="default" className="w-full">
+                <Button type="submit" variant="default" className="w-full">
                   Send Message
                 </Button>
               </form>
