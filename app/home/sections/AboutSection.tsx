@@ -21,18 +21,13 @@ export default function AboutSection() {
             
             {/* Main content - Image and Bio */}
             <div className="w-full px-0 md:px-6 lg:px-10 py-6 md:py-10 flex flex-col lg:flex-row justify-between items-center gap-12 md:gap-16">
+              {/* Profile Image */}
               <div className="w-full lg:w-[45%] flex justify-center lg:justify-start">
-                <div className="w-full max-w-[500px]">
-                  <Image
-                    src="/images/home/journey.jpg"
-                    alt="Nathanael Mor"
-                    width={597}
-                    height={895}
-                    className="w-full h-auto rounded-3xl object-cover shadow-lg"
-                    priority
-                    style={{ maxWidth: "100%", height: "auto" }}
-                  />
-                </div>
+                <img 
+                  src="/images/home/journey.jpg" 
+                  alt="Nathanael Mor" 
+                  className="w-full max-w-[500px] h-auto rounded-3xl object-cover shadow-lg" 
+                />
               </div>
               
               <div className="w-full lg:w-[55%] flex flex-col justify-start items-start gap-7">
@@ -74,17 +69,13 @@ export default function AboutSection() {
             </div>
             
             <div className="w-full px-0 md:px-6 lg:px-10 py-6 md:py-10 flex flex-col lg:flex-row justify-between items-stretch gap-10 md:gap-12">
-              <div className="w-full lg:w-[45%] flex justify-center lg:justify-start items-stretch">
-                <div className="w-full max-w-[500px]">
-                  <Image
-                    src="/images/home/smile.png"
-                    alt="Nathanael Mor training certificates"
-                    width={595}
-                    height={542}
-                    className="w-full h-auto rounded-[20px] object-cover shadow-lg"
-                    style={{ maxWidth: "100%", height: "auto" }}
-                  />
-                </div>
+              {/* Certificates Image */}
+              <div className="w-full lg:w-[45%] flex justify-center lg:justify-start items-center">
+                <img 
+                  src="/images/home/smile.png" 
+                  alt="Nathanael Mor training certificates" 
+                  className="w-full max-w-[500px] h-auto rounded-[20px] object-cover shadow-lg" 
+                />
               </div>
               
               <div className="w-full lg:w-[55%] flex flex-col justify-between items-stretch gap-4 md:gap-6">
