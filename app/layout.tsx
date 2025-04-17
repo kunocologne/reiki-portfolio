@@ -56,7 +56,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className="min-h-screen">
+      <body className="min-h-screen overflow-x-hidden">
         {children}
       </body>
     </html>

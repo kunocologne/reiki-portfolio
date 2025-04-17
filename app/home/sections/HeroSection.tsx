@@ -6,56 +6,50 @@ import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
   return (
-    <section className="w-full min-h-[500px] md:h-[779px] px-4 sm:px-8 md:px-20 py-10 md:py-40 bg-stone-300 flex justify-center items-center">
-      <div className="flex-1 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
-        <div className="inline-flex flex-col justify-start items-center md:items-start gap-6 md:gap-14">
-          <div className="flex flex-col justify-start items-center md:items-start">
-            <div className="justify-center text-zinc-800 text-4xl md:text-6xl font-bold font-['Playfair_Display'] leading-[44px] md:leading-[60px]">Connect to</div>
-            <div className="flex flex-col justify-start items-center md:items-start">
-              <div className="justify-center text-violet-300 text-4xl md:text-6xl font-bold font-['Playfair_Display'] leading-[44px] md:leading-[60px]">Your Heart,</div>
-              <div className="pt-4 flex flex-col justify-start items-center md:items-start">
-                <div className="self-stretch text-center md:text-left justify-center text-zinc-800 text-4xl md:text-6xl font-bold font-['Playfair_Display'] leading-[44px] md:leading-[60px]">Unlock Infinite Energy</div>
-              </div>
-            </div>
-          </div>
+    <section
+      className="w-full relative overflow-hidden" 
+      style={{ 
+        background: 'linear-gradient(to bottom, var(--color-bg-light) 0%, var(--color-bg) 100%)',
+        minHeight: '90vh' 
+      }}
+    >
+      <div className="container mx-auto px-4 py-16 md:py-24 relative z-10 max-w-7xl">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-6 leading-tight">
+            <span className="block">Wholeness Through</span>
+            <span className="block mt-2">Healing, Space & Nourishment</span>
+          </h1>
           
-          <div className="inline-flex justify-center items-center">
-            <div className="text-center md:text-left justify-center text-neutral-600 text-lg md:text-xl font-normal font-['Lora'] leading-7">
-              Guided by a Reiki Master taught by one of Hawayo Takata's
-              students, discover the transformative power of energy work that
-              I've been practicing since I was nine years old.
-            </div>
-          </div>
+          <p className="text-lg md:text-xl text-gray-700 mb-8 font-body max-w-2xl">
+            Embark on a transformative journey to balance, wellness, and integrated living through holistic practices and ancient wisdom.
+          </p>
           
-          <div className="inline-flex flex-col sm:flex-row justify-start items-center gap-4">
-            <Link 
-              href="#core-areas"
-              className="w-full sm:w-60 h-12 px-8 py-6 rounded-lg shadow-lg flex justify-center items-center overflow-hidden"
-              style={{ backgroundColor: "#A8A29E" }}
-            >
-              <div className="justify-center text-white text-lg font-medium font-['Inter'] leading-7">Begin Your Journey</div>
+          <div className="flex flex-col sm:flex-row gap-4 mt-4">
+            <Link href="/healing">
+              <button 
+                className="px-6 py-3 rounded-md font-semibold shadow-md transition-all hover:shadow-lg"
+                style={{backgroundColor: '#A8A29E', color: 'white'}}
+              >
+                Discover Healing Modalities
+              </button>
             </Link>
             
-            <Link 
-              href="/contact"
-              className="w-full sm:w-60 h-12 px-8 py-6 bg-white rounded-lg shadow-lg outline outline-1 outline-offset-[-1px] flex justify-center items-center overflow-hidden"
-              style={{ outlineColor: "#BFA8D9" }}
-            >
-              <div className="text-lg font-medium font-['Inter'] leading-7" style={{ color: "#BFA8D9" }}>Learn More</div>
+            <Link href="#triangle-concept">
+              <button 
+                className="px-6 py-3 rounded-md font-semibold shadow-sm transition-all hover:shadow-md border-2"
+                style={{borderColor: '#BFA8D9', color: '#BFA8D9'}}
+              >
+                Learn My Approach
+              </button>
             </Link>
           </div>
         </div>
-        
-        <div className="relative mt-6 md:mt-0">
-          <Image
-            src="/images/home/portrait.jpg"
-            alt="Nathanael Mor"
-            width={384}
-            height={560}
-            className="w-64 sm:w-80 md:w-96 h-auto md:h-[560px] relative rounded-[20px] object-cover"
-            priority
-          />
-        </div>
+      </div>
+      
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute -right-24 top-1/4 w-96 h-96 rounded-full bg-purple-100 opacity-50 blur-3xl"></div>
+        <div className="absolute -left-24 top-1/3 w-80 h-80 rounded-full bg-orange-100 opacity-50 blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-yellow-100 opacity-40 blur-3xl"></div>
       </div>
     </section>
   );

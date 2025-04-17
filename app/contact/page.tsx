@@ -43,7 +43,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium">Email</h3>
-                    <p className="text-gray-600">contact@nathanaelmor.com</p>
+                    <p className="text-gray-600">nathanaelmor@gmail.com</p>
                   </div>
                 </div>
                 
@@ -53,17 +53,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium">Phone</h3>
-                    <p className="text-gray-600">+41 76 123 45 67</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="bg-amber/10 p-3 rounded-full">
-                    <MapPin className="text-amber h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium">Location</h3>
-                    <p className="text-gray-600">Zürich, Switzerland</p>
+                    <p className="text-gray-600">+351 915 274 280</p>
                   </div>
                 </div>
               </div>
