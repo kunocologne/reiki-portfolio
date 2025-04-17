@@ -53,9 +53,9 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="font-['Playfair_Display'] text-xl font-medium mb-1">Email</h3>
-                        <p className="text-[#555555] font-['Lora']">nathanaelmor7@gmail.com</p>
+                        <p className="text-[#555555] font-['Lora']">nathanaelmor@gmail.com</p>
                         <a 
-                          href="mailto:nathanaelmor7@gmail.com" 
+                          href="mailto:nathanaelmor@gmail.com" 
                           className="inline-block mt-2 text-[#CB8563] font-medium hover:text-[#b77857] transition-colors font-['Lora']"
                         >
                           Send an email &rarr;

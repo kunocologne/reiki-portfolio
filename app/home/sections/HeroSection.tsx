@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
   return (
-    <section className="w-full py-24 md:py-32 lg:py-40 bg-[#E3DAC2] overflow-hidden">
+    <section className="w-full py-20 md:py-32 bg-[#E3DAC2] overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-10 flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-16">
         {/* Left Content */}
         <div className="flex flex-col justify-start items-start gap-8 md:gap-10 max-w-full lg:max-w-[600px]">
@@ -39,18 +39,18 @@ export default function HeroSection() {
           </div>
         </div>
         
-        {/* Right Content - Images */}
+        {/* Right Content - Images (desktop only) */}
         <div className="hidden lg:flex justify-start items-center gap-3 mt-10 lg:mt-0">
           <div className="w-64 xl:w-72 flex flex-col justify-start items-start gap-3">
             <Image 
-              src="/images/home/hero-1.jpg" 
+              src="/images/home/hero.jpg" 
               alt="Wellness journey"
               width={280}
               height={351}
               className="w-full h-80 rounded-xl object-cover shadow-md"
             />
             <Image 
-              src="/images/home/hero-2.jpg" 
+              src="/images/home/move.jpg" 
               alt="Holistic wellness"
               width={280}
               height={177}
@@ -60,31 +60,20 @@ export default function HeroSection() {
           
           <div className="w-72 xl:w-80 flex flex-col justify-start items-start gap-3">
             <Image 
-              src="/images/home/hero-3.jpg" 
+              src="/images/home/food.jpg" 
               alt="Energy work"
               width={344}
               height={213}
               className="w-full h-52 rounded-xl object-cover shadow-md"
             />
             <Image 
-              src="/images/home/hero-4.jpg" 
+              src="/images/home/movement.jpg" 
               alt="Movement practice"
               width={320}
               height={320}
               className="w-full h-80 rounded-xl object-cover shadow-md"
             />
           </div>
-        </div>
-        
-        {/* Mobile Image - Only visible on mobile */}
-        <div className="lg:hidden w-full max-w-md mx-auto mt-8">
-          <Image 
-            src="/images/home/hero-1.jpg" 
-            alt="Wellness journey mobile"
-            width={500}
-            height={400}
-            className="w-full h-auto rounded-xl object-cover shadow-md"
-          />
         </div>
       </div>
     </section>
