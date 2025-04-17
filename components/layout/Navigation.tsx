@@ -69,21 +69,21 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
 
   return (
     <header
-      className={`sticky top-0 z-10 w-full bg-white backdrop-blur-sm border-b transition-all duration-200 ${
+      className={`sticky top-0 z-40 w-full bg-white/90 backdrop-blur-sm border-b transition-all duration-200 ${
         scrolled ? 'shadow-md' : ''
       }`}
       style={{ borderColor: "var(--color-secondary)" }}
     >
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+      <div className="max-w-7xl mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-xl md:text-2xl font-serif tracking-wide">Nathanael Mor</span>
         </Link>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-8">
           <Link 
             href="/" 
-            className={`text-foreground/80 hover:text-brand-purple transition-colors font-body ${
+            className={`text-foreground/80 hover:text-brand-purple transition-colors font-body text-base ${
               activePage === 'home' ? 'font-bold' : ''
             }`}
             style={activePage === 'home' ? getActiveLinkColor() : {}}
@@ -92,7 +92,7 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
           </Link>
           <Link 
             href="/healing" 
-            className={`text-foreground/80 hover:text-brand-purple transition-colors font-body ${
+            className={`text-foreground/80 hover:text-brand-purple transition-colors font-body text-base ${
               activePage === 'healing' ? 'font-bold' : ''
             }`}
             style={activePage === 'healing' ? getActiveLinkColor() : {}}
@@ -101,7 +101,7 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
           </Link>
           <Link 
             href="/sacred-house" 
-            className={`text-foreground/80 hover:text-brand-purple transition-colors font-body ${
+            className={`text-foreground/80 hover:text-brand-purple transition-colors font-body text-base ${
               activePage === 'sacred-house' ? 'font-bold' : ''
             }`}
             style={activePage === 'sacred-house' ? getActiveLinkColor() : {}}
@@ -110,7 +110,7 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
           </Link>
           <Link 
             href="/food" 
-            className={`text-foreground/80 hover:text-brand-purple transition-colors font-body ${
+            className={`text-foreground/80 hover:text-brand-purple transition-colors font-body text-base ${
               activePage === 'food' ? 'font-bold' : ''
             }`}
             style={activePage === 'food' ? getActiveLinkColor() : {}}
@@ -122,7 +122,7 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
         {/* Mobile Menu Button */}
         <div className="flex items-center gap-4">
           <Link href="/contact">
-            <Button style={getButtonBgColor()} className="hidden md:flex hover:opacity-90 font-sans">
+            <Button style={getButtonBgColor()} className="hidden md:flex hover:opacity-90 font-sans text-sm">
               Get in Touch
             </Button>
           </Link>
@@ -138,8 +138,8 @@ export function Navigation({ activePage = 'home' }: NavigationProps) {
       
       {/* Mobile Navigation - Simple Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-b" style={{ borderColor: "var(--color-secondary)" }}>
-          <nav className="container py-4 flex flex-col space-y-3">
+        <div className="md:hidden bg-white border-t border-b shadow-sm" style={{ borderColor: "var(--color-secondary)" }}>
+          <nav className="max-w-7xl mx-auto py-4 flex flex-col space-y-3 px-4">
             <Link 
               href="/" 
               className={`px-4 py-2 hover:bg-orange-50 rounded-md transition-colors font-body ${
