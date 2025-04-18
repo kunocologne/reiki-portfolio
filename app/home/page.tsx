@@ -9,8 +9,8 @@ import HomeContent from "./HomeContent";
 
 // Metadata needs to be exported from a server component
 export const metadata: Metadata = {
-  title: "Home | Nathanael Mor",
-  description: "Discover Nathanael Mor's holistic approach to wellness through mindset, movement, and nutrition."
+  title: "Nathanael Mor | Holistic Wellness Expert",
+  description: "Discover a balanced approach to wellness through mindset, movement, and nutrition with Nathanael Mor.",
 };
 
 export default function Home() {
