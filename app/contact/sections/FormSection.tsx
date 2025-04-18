@@ -38,9 +38,12 @@ export default function FormSection() {
     setIsSubmitting(true);
     
     // EmailJS parameters
-    const serviceId = 'service_default'; // Replace with your service ID
-    const templateId = 'template_default'; // Replace with your template ID
-    const publicKey = 'your_public_key'; // Replace with your public key
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_default';
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_default';
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'your_public_key';
+    
+    // Log to help with debugging
+    console.log('Sending email with EmailJS...');
     
     const templateParams = {
       from_name: `${formData.firstName} ${formData.lastName}`,
