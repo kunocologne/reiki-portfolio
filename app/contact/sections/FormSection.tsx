@@ -46,10 +46,13 @@ const FormSection = () => {
     try {
       // Send email using EmailJS
       const templateParams = {
-        from_name: `${formData.firstName} ${formData.lastName}`,
+        from_name: `${formData.firstName} ${formData.lastName} <${formData.email}>`,
+        from_email: process.env.NEXT_PUBLIC_EMAIL_FROM || 'contact@nathanaelmor.com',
         reply_to: formData.email,
+        to_name: 'Cuneyt Oztimur', 
         service_requested: formData.service,
-        message: formData.message
+        message: `Email: ${formData.email}\n\n${formData.message}`,
+        sender_email: formData.email
       };
 
       const result = await emailjs.send(
