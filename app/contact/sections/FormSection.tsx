@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { Button } from "@/components/ui/button";
+import emailjs from '@emailjs/browser';
 
 export default function FormSection() {
   const [formData, setFormData] = useState({
@@ -36,20 +37,22 @@ export default function FormSection() {
     
     setIsSubmitting(true);
     
+    // EmailJS parameters
+    const serviceId = 'service_default'; // Replace with your service ID
+    const templateId = 'template_default'; // Replace with your template ID
+    const publicKey = 'your_public_key'; // Replace with your public key
+    
+    const templateParams = {
+      from_name: `${formData.firstName} ${formData.lastName}`,
+      from_email: formData.email,
+      service_requested: formData.service || 'General Inquiry',
+      message: formData.message,
+      to_name: 'Nathanael Mor',
+      reply_to: formData.email
+    };
+    
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      
-      const result = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(result.error || 'Something went wrong');
-      }
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
       
       // Reset form after successful submission
       setFormData({
@@ -67,7 +70,7 @@ export default function FormSection() {
     } catch (error) {
       setNotification({
         type: 'error',
-        message: error instanceof Error ? error.message : 'Failed to send message. Please try again.'
+        message: 'Failed to send message. Please try again later.'
       });
     } finally {
       setIsSubmitting(false);
