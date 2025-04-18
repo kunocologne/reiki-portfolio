@@ -1,12 +1,13 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import emailjs from '@emailjs/browser';
 
 const FormSection = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -18,9 +19,12 @@ const FormSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [notification, setNotification] = useState({ show: false, type: '', message: '' });
 
-  // Initialize EmailJS with the public key
-  React.useEffect(() => {
-    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '');
+  // Initialize EmailJS once on component mount
+  useEffect(() => {
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+    if (publicKey) {
+      emailjs.init(publicKey);
+    }
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -44,24 +48,23 @@ const FormSection = () => {
     setIsSubmitting(true);
     
     try {
-      // Send email using EmailJS
+      // Prepare template parameters
       const templateParams = {
-        from_name: `${formData.firstName} ${formData.lastName} <${formData.email}>`,
-        from_email: process.env.NEXT_PUBLIC_EMAIL_FROM || 'contact@nathanaelmor.com',
+        from_name: `${formData.firstName} ${formData.lastName}`,
         reply_to: formData.email,
-        to_name: 'Cuneyt Oztimur', 
         service_requested: formData.service,
-        message: `Email: ${formData.email}\n\n${formData.message}`,
-        sender_email: formData.email
+        message: formData.message,
       };
-
-      const result = await emailjs.send(
+      
+      // Send email using EmailJS
+      const result = await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
-        templateParams
+        formRef.current || '',
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
       );
 
-      if (result.status === 200) {
+      if (result.text === 'OK') {
         // Success
         setNotification({
           show: true,
@@ -81,7 +84,7 @@ const FormSection = () => {
         throw new Error('Failed to send message');
       }
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error('Error sending message:', error);
       setNotification({
         show: true,
         type: 'error',
@@ -93,7 +96,7 @@ const FormSection = () => {
   };
 
   return (
-    <div className="flex justify-center items-center w-full">
+    <div className="flex justify-center items-center w-full py-16">
       <div className="w-full max-w-xl p-6 bg-white rounded-xl shadow-lg">
         <h2 className="text-3xl font-semibold text-center mb-6">Get In Touch</h2>
         
@@ -107,7 +110,7 @@ const FormSection = () => {
           </div>
         )}
         
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label htmlFor="firstName" className="block mb-1 text-sm font-medium">
@@ -115,7 +118,7 @@ const FormSection = () => {
               </label>
               <Input
                 id="firstName"
-                name="firstName"
+                name="from_name"
                 type="text"
                 value={formData.firstName}
                 onChange={handleChange}
@@ -130,7 +133,7 @@ const FormSection = () => {
               </label>
               <Input
                 id="lastName"
-                name="lastName"
+                name="last_name"
                 type="text"
                 value={formData.lastName}
                 onChange={handleChange}
@@ -145,7 +148,7 @@ const FormSection = () => {
             </label>
             <Input
               id="email"
-              name="email"
+              name="reply_to"
               type="email"
               value={formData.email}
               onChange={handleChange}
@@ -160,7 +163,7 @@ const FormSection = () => {
             </label>
             <select
               id="service"
-              name="service"
+              name="service_requested"
               value={formData.service}
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
