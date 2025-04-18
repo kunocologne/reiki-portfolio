@@ -9,8 +9,7 @@ import emailjs from '@emailjs/browser';
 const FormSection = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
     service: 'general',
     message: '',
@@ -36,7 +35,7 @@ const FormSection = () => {
     e.preventDefault();
     
     // Validate required fields
-    if (!formData.firstName || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.message) {
       setNotification({
         show: true,
         type: 'error',
@@ -48,14 +47,6 @@ const FormSection = () => {
     setIsSubmitting(true);
     
     try {
-      // Prepare template parameters
-      const templateParams = {
-        from_name: `${formData.firstName} ${formData.lastName}`,
-        reply_to: formData.email,
-        service_requested: formData.service,
-        message: formData.message,
-      };
-      
       // Send email using EmailJS
       const result = await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
@@ -74,8 +65,7 @@ const FormSection = () => {
         
         // Reset form data
         setFormData({
-          firstName: '',
-          lastName: '',
+          name: '',
           email: '',
           service: 'general',
           message: ''
@@ -111,35 +101,19 @@ const FormSection = () => {
         )}
         
         <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="firstName" className="block mb-1 text-sm font-medium">
-                First Name <span className="text-red-500">*</span>
-              </label>
-              <Input
-                id="firstName"
-                name="from_name"
-                type="text"
-                value={formData.firstName}
-                onChange={handleChange}
-                required
-                className="w-full"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="lastName" className="block mb-1 text-sm font-medium">
-                Last Name
-              </label>
-              <Input
-                id="lastName"
-                name="last_name"
-                type="text"
-                value={formData.lastName}
-                onChange={handleChange}
-                className="w-full"
-              />
-            </div>
+          <div>
+            <label htmlFor="name" className="block mb-1 text-sm font-medium">
+              Name <span className="text-red-500">*</span>
+            </label>
+            <Input
+              id="name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-full"
+            />
           </div>
           
           <div>
@@ -148,7 +122,7 @@ const FormSection = () => {
             </label>
             <Input
               id="email"
-              name="reply_to"
+              name="email"
               type="email"
               value={formData.email}
               onChange={handleChange}
@@ -163,7 +137,7 @@ const FormSection = () => {
             </label>
             <select
               id="service"
-              name="service_requested"
+              name="service"
               value={formData.service}
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
@@ -193,7 +167,8 @@ const FormSection = () => {
           
           <Button 
             type="submit" 
-            className="w-full bg-amber-500 hover:bg-amber-600 transition-colors"
+            variant="default"
+            className="w-full bg-amber-500 hover:bg-amber-600 text-white font-medium py-2 px-4 rounded-md transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}

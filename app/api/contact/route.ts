@@ -4,10 +4,10 @@ import nodemailer from 'nodemailer';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { firstName, lastName, email, service, message } = body;
+    const { name, email, service, message } = body;
 
     // Validate required fields
-    if (!firstName || !email || !message) {
+    if (!name || !email || !message) {
       return NextResponse.json(
         { error: 'Please fill out all required fields' },
         { status: 400 }
@@ -29,9 +29,9 @@ export async function POST(request: NextRequest) {
     const mailData = {
       from: process.env.EMAIL_FROM,
       to: process.env.EMAIL_TO,
-      subject: `Contact Form: ${firstName} ${lastName || ''} - ${service || 'General Inquiry'}`,
+      subject: `Contact Form: ${name} - ${service || 'General Inquiry'}`,
       text: `
-Name: ${firstName} ${lastName || ''}
+Name: ${name}
 Email: ${email}
 Service: ${service || 'Not specified'}
 Message: ${message}
@@ -39,7 +39,7 @@ Message: ${message}
       html: `
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
   <h2 style="color: #444; border-bottom: 1px solid #eee; padding-bottom: 10px;">New Contact Form Submission</h2>
-  <p><strong>Name:</strong> ${firstName} ${lastName || ''}</p>
+  <p><strong>Name:</strong> ${name}</p>
   <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
   <p><strong>Service:</strong> ${service || 'Not specified'}</p>
   <p><strong>Message:</strong></p>
