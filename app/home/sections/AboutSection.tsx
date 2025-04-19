@@ -68,33 +68,33 @@ export default function AboutSection() {
               <div className="hidden sm:block w-12 md:w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
             </div>
             
-            <div className="w-full px-0 md:px-6 lg:px-10 py-6 md:py-10 flex flex-col-reverse lg:flex-row justify-between items-center gap-10 md:gap-12">
+            <div className="w-full md:w-11/12 max-w-7xl mx-auto mt-16 mb-8 flex flex-col lg:flex-row justify-center items-center">
               {/* Certificates Image */}
-              <div className="w-full lg:w-1/2 flex justify-center lg:justify-start items-center relative">
+              <div className="w-full lg:w-5/12 mb-16 lg:mb-0">
                 <img 
                   src="/images/home/smile.png" 
-                  alt="Nathanael Mor training certificates" 
-                  className="w-full max-w-[500px] h-auto rounded-[20px] object-cover shadow-lg" 
+                  alt="Nathanael Mor" 
+                  className="w-full max-w-[500px] h-auto rounded-[20px] object-cover shadow-lg mx-auto" 
                 />
               </div>
               
               {/* Certification Pills */}
-              <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-end gap-4">
+              <div className="w-full lg:w-7/12 flex flex-col justify-center items-center lg:items-end gap-7">
                 {[
                   "Angel therapy practitioner",
                   "holistic coaching",
                   "meditation",
                   "nutritional therapy",
-                  "SHAMANISM",
-                  "TANTRA YOGA INSTRUCTOR"
+                  "shamanism",
+                  "tantra yoga instructor"
                 ].map((certification, index) => (
                   <div 
                     key={index}
-                    className="py-3 px-8 bg-gradient-to-r from-[#BFA8D9] to-[#E3A76F] rounded-full shadow-md w-72 lg:w-80"
+                    className="w-full max-w-[450px] h-14 rounded-full shadow-md bg-gradient-to-r from-[#c5d7b9] to-[#e3c5a0] flex items-center justify-center"
                   >
-                    <div className="text-white text-base md:text-lg font-medium font-['Work_Sans'] uppercase tracking-wider text-left pl-4">
+                    <span className="text-white text-lg font-medium font-['Work_Sans'] uppercase tracking-[3px] text-center">
                       {certification}
-                    </div>
+                    </span>
                   </div>
                 ))}
               </div>
