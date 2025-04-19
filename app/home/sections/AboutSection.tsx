@@ -90,9 +90,9 @@ export default function AboutSection() {
                 ].map((certification, index) => (
                   <div 
                     key={index}
-                    className="py-3 px-8 bg-gradient-to-r from-[#BFA8D9] to-[#E3A76F] rounded-full shadow-md"
+                    className="py-3 px-8 bg-gradient-to-r from-[#BFA8D9] to-[#E3A76F] rounded-full shadow-md w-72 lg:w-80"
                   >
-                    <div className="text-white text-base md:text-lg font-medium font-['Work_Sans'] uppercase tracking-wider">
+                    <div className="text-white text-base md:text-lg font-medium font-['Work_Sans'] uppercase tracking-wider text-left pl-4">
                       {certification}
                     </div>
                   </div>
