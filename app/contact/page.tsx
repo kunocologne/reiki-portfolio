@@ -20,43 +20,43 @@ export default function ContactPage() {
       {/* Main content */}
       <main>
         {/* Hero Section - Simple for Contact Page */}
-        <section className="py-20 bg-[#e3dac2]">
+        <section className="py-12 sm:py-16 md:py-20 bg-[#e3dac2]">
           <div className="container mx-auto px-4 md:px-6 lg:px-10 text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-['Playfair_Display'] font-bold mb-6">Let's Connect</h1>
-            <div className="w-16 md:w-24 h-1 bg-[#CB8563] mx-auto mb-6"></div>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto text-[#555555] font-['Lora']">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-['Playfair_Display'] font-bold mb-4 sm:mb-6">Let's Connect</h1>
+            <div className="w-12 sm:w-16 md:w-24 h-1 bg-[#CB8563] mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto text-[#555555] font-['Lora']">
               I'd love to hear from you. Reach out to discuss how we can work together on your wellness journey.
             </p>
           </div>
         </section>
         
         {/* Contact Information Section */}
-        <section className="py-20 md:py-32">
+        <section className="py-12 sm:py-16 md:py-20 md:py-32">
           <div className="container mx-auto px-4 md:px-6 lg:px-10">
             <div className="max-w-2xl mx-auto">
               {/* Contact Information */}
-              <div className="flex flex-col gap-8">
-                <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold text-[#333333] mb-2 text-center">
+              <div className="flex flex-col gap-6 sm:gap-8">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-['Playfair_Display'] font-bold text-[#333333] mb-2 text-center">
                   Get In Touch
                 </h2>
-                <p className="text-lg font-['Lora'] text-[#555555] mb-6 text-center">
+                <p className="text-base sm:text-lg font-['Lora'] text-[#555555] mb-4 sm:mb-6 text-center">
                   I'm here to help you on your journey to wellness. Feel free to reach out with any questions 
                   or to schedule a consultation.
                 </p>
                 
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   {/* Email Box */}
-                  <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 transition-all hover:shadow-xl">
-                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
-                      <div className="bg-[#E3A76F]/10 p-3 rounded-full">
-                        <Mail className="text-[#E3A76F] h-6 w-6" />
+                  <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 transition-all hover:shadow-xl">
+                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left">
+                      <div className="bg-[#E3A76F]/10 p-2 sm:p-3 rounded-full">
+                        <Mail className="text-[#E3A76F] h-5 w-5 sm:h-6 sm:w-6" />
                       </div>
                       <div className="flex flex-col items-center sm:items-start">
-                        <h3 className="font-['Playfair_Display'] text-xl font-medium mb-1">Email</h3>
-                        <p className="text-[#555555] font-['Lora']">nathanaelmor@gmail.com</p>
+                        <h3 className="font-['Playfair_Display'] text-lg sm:text-xl font-medium mb-1">Email</h3>
+                        <p className="text-[#555555] font-['Lora'] text-sm sm:text-base">nathanaelmor@gmail.com</p>
                         <a 
                           href="mailto:nathanaelmor@gmail.com" 
-                          className="inline-block mt-2 text-[#CB8563] font-medium hover:text-[#b77857] transition-colors font-['Lora']"
+                          className="inline-block mt-2 text-[#CB8563] font-medium hover:text-[#b77857] transition-colors font-['Lora'] text-sm sm:text-base"
                         >
                           Send an email &rarr;
                         </a>
@@ -65,12 +65,12 @@ export default function ContactPage() {
                   </div>
                   
                   {/* WhatsApp Box */}
-                  <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 transition-all hover:shadow-xl">
-                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
-                      <div className="bg-[#25D366]/10 p-3 rounded-full">
+                  <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 transition-all hover:shadow-xl">
+                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left">
+                      <div className="bg-[#25D366]/10 p-2 sm:p-3 rounded-full">
                         <svg 
                           xmlns="http://www.w3.org/2000/svg" 
-                          className="h-6 w-6" 
+                          className="h-5 w-5 sm:h-6 sm:w-6" 
                           fill="#25D366" 
                           viewBox="0 0 24 24"
                         >
@@ -78,13 +78,13 @@ export default function ContactPage() {
                         </svg>
                       </div>
                       <div className="flex flex-col items-center sm:items-start">
-                        <h3 className="font-['Playfair_Display'] text-xl font-medium mb-1">WhatsApp</h3>
-                        <p className="text-[#555555] font-['Lora']">+35191527428</p>
+                        <h3 className="font-['Playfair_Display'] text-lg sm:text-xl font-medium mb-1">WhatsApp</h3>
+                        <p className="text-[#555555] font-['Lora'] text-sm sm:text-base">+351 915 274 2800</p>
                         <a 
-                          href="https://wa.me/35191527428" 
+                          href="https://wa.me/351915274280" 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="inline-block mt-2 text-[#25D366] font-medium hover:text-[#1ea855] transition-colors font-['Lora']"
+                          className="inline-block mt-2 text-[#25D366] font-medium hover:text-[#1ea855] transition-colors font-['Lora'] text-sm sm:text-base"
                         >
                           Send a message &rarr;
                         </a>
