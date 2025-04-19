@@ -71,11 +71,11 @@ export default function AboutSection() {
             <div className="w-full px-20 py-6 md:py-10">
               <div className="flex flex-col lg:flex-row justify-between items-stretch gap-10 md:gap-12 h-[580px]">
                 {/* Certificates Image */}
-                <div className="w-full lg:w-[46%] h-full">
+                <div className="w-full lg:w-[46%] h-full rounded-[20px] shadow-lg flex items-center justify-center bg-[#f8f5f0] overflow-hidden">
                   <img 
                     src="/images/home/smile.png" 
                     alt="Nathanael Mor" 
-                    className="w-full h-full rounded-[20px] object-cover shadow-lg"
+                    className="w-full h-auto object-contain scale-110"
                   />
                 </div>
                 
