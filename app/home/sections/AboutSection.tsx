@@ -68,10 +68,10 @@ export default function AboutSection() {
               <div className="hidden sm:block w-12 md:w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
             </div>
             
-            <div className="w-full px-20 py-6 md:py-10">
-              <div className="flex flex-col lg:flex-row justify-between items-stretch gap-10 md:gap-12 h-[580px]">
+            <div className="w-full px-4 sm:px-8 md:px-20 py-6 md:py-10">
+              <div className="flex flex-col lg:flex-row justify-between items-center lg:items-stretch gap-10 md:gap-12">
                 {/* Certificates Image */}
-                <div className="w-full lg:w-[46%] h-full rounded-[20px] shadow-lg flex items-center justify-center bg-[#f8f5f0] overflow-hidden">
+                <div className="w-full lg:w-[46%] rounded-[20px] shadow-lg flex items-center justify-center bg-[#f8f5f0] overflow-hidden py-8">
                   <img 
                     src="/images/home/smile.png" 
                     alt="Nathanael Mor" 
@@ -80,7 +80,7 @@ export default function AboutSection() {
                 </div>
                 
                 {/* Certification Pills */}
-                <div className="w-full lg:w-[46%] flex flex-col justify-between h-full py-2">
+                <div className="w-full lg:w-[46%] flex flex-col justify-center gap-6 sm:gap-8 py-4">
                   {[
                     "Angel therapy practitioner",
                     "holistic coaching",
@@ -91,9 +91,9 @@ export default function AboutSection() {
                   ].map((certification, index) => (
                     <div 
                       key={index}
-                      className="w-full max-w-[500px] h-[70px] rounded-full shadow-md bg-gradient-to-r from-[#c5d7b9] to-[#e3c5a0] flex items-center justify-center ml-auto"
+                      className="w-full max-w-[500px] h-[60px] sm:h-[70px] rounded-full shadow-md bg-gradient-to-r from-[#c5d7b9] to-[#e3c5a0] flex items-center justify-center lg:ml-auto"
                     >
-                      <span className="text-white text-lg font-medium font-['Work_Sans'] uppercase tracking-[3px] text-center">
+                      <span className="text-white text-base sm:text-lg font-medium font-['Work_Sans'] uppercase tracking-[2px] sm:tracking-[3px] text-center px-4">
                         {certification}
                       </span>
                     </div>

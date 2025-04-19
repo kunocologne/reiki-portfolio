@@ -39,8 +39,8 @@ export default function HeroSection() {
           </div>
         </div>
         
-        {/* Images Section - For all screen sizes */}
-        <div className="flex flex-col sm:flex-row lg:flex-row justify-center lg:justify-start items-center gap-2 sm:gap-3 mt-8 sm:mt-10 lg:mt-0 w-full lg:w-auto">
+        {/* Images Section - Hidden on mobile, visible on sm and larger */}
+        <div className="hidden sm:flex flex-col sm:flex-row lg:flex-row justify-center lg:justify-start items-center gap-2 sm:gap-3 mt-8 sm:mt-10 lg:mt-0 w-full lg:w-auto">
           <div className="w-full sm:w-1/2 lg:w-64 xl:w-72 flex flex-col justify-start items-center lg:items-start gap-2 sm:gap-3">
             <Image 
               src="/images/home/hero.jpg" 
@@ -54,11 +54,11 @@ export default function HeroSection() {
               alt="Holistic wellness"
               width={280}
               height={177}
-              className="w-full max-w-xs sm:max-w-none h-40 sm:h-44 rounded-xl object-cover shadow-md hidden sm:block"
+              className="w-full max-w-xs sm:max-w-none h-40 sm:h-44 rounded-xl object-cover shadow-md"
             />
           </div>
           
-          <div className="w-full sm:w-1/2 lg:w-72 xl:w-80 flex-col justify-start items-center lg:items-start gap-2 sm:gap-3 hidden sm:flex">
+          <div className="w-full sm:w-1/2 lg:w-72 xl:w-80 flex-col justify-start items-center lg:items-start gap-2 sm:gap-3 flex">
             <Image 
               src="/images/home/food.jpg" 
               alt="Energy work"
@@ -74,17 +74,6 @@ export default function HeroSection() {
               className="w-full max-w-xs sm:max-w-none h-72 sm:h-80 rounded-xl object-cover shadow-md"
             />
           </div>
-        </div>
-        
-        {/* Mobile Image */}
-        <div className="flex sm:hidden w-full justify-center mt-6">
-          <Image 
-            src="/images/home/mindset.jpg" 
-            alt="Mindset - Spiritual Alignment"
-            width={320}
-            height={320}
-            className="w-full max-w-xs h-56 rounded-xl object-cover shadow-md"
-          />
         </div>
       </div>
     </section>
