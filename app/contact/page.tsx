@@ -91,27 +91,6 @@ export default function ContactPage() {
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Instagram Box */}
-                  <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 transition-all hover:shadow-xl">
-                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
-                      <div className="bg-[#E1306C]/10 p-3 rounded-full">
-                        <Instagram className="text-[#E1306C] h-6 w-6" />
-                      </div>
-                      <div className="flex flex-col items-center sm:items-start">
-                        <h3 className="font-['Playfair_Display'] text-xl font-medium mb-1">Instagram</h3>
-                        <p className="text-[#555555] font-['Lora']">@nathanael.mor</p>
-                        <a 
-                          href="https://instagram.com/nathanael.mor" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="inline-block mt-2 text-[#E1306C] font-medium hover:text-[#c62b5f] transition-colors font-['Lora']"
-                        >
-                          Follow me &rarr;
-                        </a>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

@@ -68,9 +68,9 @@ export default function AboutSection() {
               <div className="hidden sm:block w-12 md:w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
             </div>
             
-            <div className="w-full px-0 md:px-6 lg:px-10 py-6 md:py-10 flex flex-col lg:flex-row justify-between items-stretch gap-10 md:gap-12">
+            <div className="w-full px-0 md:px-6 lg:px-10 py-6 md:py-10 flex flex-col-reverse lg:flex-row justify-between items-center gap-10 md:gap-12">
               {/* Certificates Image */}
-              <div className="w-full lg:w-[45%] flex justify-center lg:justify-start items-center">
+              <div className="w-full lg:w-1/2 flex justify-center lg:justify-start items-center relative">
                 <img 
                   src="/images/home/smile.png" 
                   alt="Nathanael Mor training certificates" 
@@ -78,7 +78,8 @@ export default function AboutSection() {
                 />
               </div>
               
-              <div className="w-full lg:w-[55%] flex flex-col justify-between items-stretch gap-4 md:gap-6">
+              {/* Certification Pills */}
+              <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-end gap-4">
                 {[
                   "Angel therapy practitioner",
                   "holistic coaching",
@@ -89,9 +90,9 @@ export default function AboutSection() {
                 ].map((certification, index) => (
                   <div 
                     key={index}
-                    className="w-full h-auto p-6 md:p-8 bg-gradient-to-r from-[#E3A76F] via-[#D08D9B] to-[#8B70AC] rounded-[20px] outline outline-1 outline-black/50 flex flex-col justify-center items-start shadow-md"
+                    className="py-3 px-8 bg-gradient-to-r from-[#BFA8D9] to-[#E3A76F] rounded-full shadow-md"
                   >
-                    <div className="text-left text-white text-xl md:text-2xl lg:text-3xl font-medium font-['Work_Sans'] uppercase leading-tight tracking-[3px] md:tracking-[5.60px]">
+                    <div className="text-white text-base md:text-lg font-medium font-['Work_Sans'] uppercase tracking-wider">
                       {certification}
                     </div>
                   </div>

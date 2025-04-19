@@ -34,20 +34,9 @@ export function Navigation({ activePage }: NavigationProps) {
     return () => window.removeEventListener('resize', handleResize)
   }, [mobileMenuOpen])
 
-  // Get button color based on the active page
+  // Button color is now consistently orange (#CB8563)
   const getButtonBgColor = () => {
-    switch (activePage) {
-      case 'healing':
-        return { backgroundColor: "#BFA8D9", color: "white" };
-      case 'sacred-house':
-        return { backgroundColor: "#A8C3A7", color: "white" };
-      case 'food':
-        return { backgroundColor: "#E3A76F", color: "white" };
-      case 'contact':
-        return { backgroundColor: "#E3A76F", color: "white" };
-      default:
-        return { backgroundColor: "#E8D7B7", color: "white" };
-    }
+    return { backgroundColor: "#CB8563", color: "white" };
   };
 
   return (
