@@ -3,25 +3,25 @@ import Image from "next/image";
 
 export default function TriangleConceptSection() {
   return (
-    <section className="py-20 md:py-32 bg-[#E3DAC2]" id="triangle-concept">
-      <div className="container mx-auto px-4 md:px-6 lg:px-10">
+    <section className="py-16 sm:py-20 md:py-32 bg-[#E3DAC2]" id="triangle-concept">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10">
         {/* Section Header */}
-        <div className="flex flex-col items-center justify-center mb-12 md:mb-20">
-          <div className="flex items-center gap-2 md:gap-4 mb-4">
-            <div className="hidden sm:block w-12 md:w-24 h-0.5 bg-orange-300"></div>
-            <h3 className="text-center text-zinc-800 text-xs md:text-base font-medium font-['Work_Sans'] uppercase tracking-[3px] md:tracking-[5.60px]">
+        <div className="flex flex-col items-center justify-center mb-10 sm:mb-12 md:mb-20">
+          <div className="flex items-center gap-2 md:gap-4 mb-3 sm:mb-4">
+            <div className="hidden sm:block w-8 md:w-12 lg:w-24 h-0.5 bg-orange-300"></div>
+            <h3 className="text-center text-zinc-800 text-xs md:text-base font-medium font-['Work_Sans'] uppercase tracking-[2px] sm:tracking-[3px] md:tracking-[5.60px]">
               MY APPROACH
             </h3>
-            <div className="hidden sm:block w-12 md:w-24 h-0.5 bg-orange-300"></div>
+            <div className="hidden sm:block w-8 md:w-12 lg:w-24 h-0.5 bg-orange-300"></div>
           </div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl text-center font-bold font-['Playfair_Display'] text-zinc-800 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-bold font-['Playfair_Display'] text-zinc-800 mb-4 sm:mb-6">
             The Three Pillars of Wellness
           </h2>
           
-          <div className="w-16 md:w-24 h-1 bg-orange-300 mb-6 md:mb-8"></div>
+          <div className="w-12 sm:w-16 md:w-24 h-1 bg-orange-300 mb-4 sm:mb-6 md:mb-8"></div>
           
-          <p className="text-center max-w-2xl text-zinc-800 text-base md:text-lg font-['Lora'] px-4">
+          <p className="text-center max-w-2xl text-zinc-800 text-sm sm:text-base md:text-lg font-['Lora'] px-2 sm:px-4">
             My approach addresses the fundamental elements of wellness through these three 
             interconnected pillars. Like a triangle—the strongest shape in nature—these pillars support 
             each other to create a comprehensive foundation for vibrant health and well-being.
@@ -29,8 +29,8 @@ export default function TriangleConceptSection() {
         </div>
 
         {/* Triangle Diagram */}
-        <div className="max-w-xs sm:max-w-sm md:max-w-md mx-auto mb-16 md:mb-24">
-          <div className="bg-white p-4 md:p-8 rounded-xl border-2 border-black flex items-center justify-center">
+        <div className="max-w-xs sm:max-w-sm md:max-w-md mx-auto mb-12 sm:mb-16 md:mb-24">
+          <div className="bg-white p-3 sm:p-4 md:p-8 rounded-xl border-2 border-black flex items-center justify-center">
             <Image 
               src="/images/home/rectangle.png"
               alt="The Three Pillars of Wellness: Mindset, Movement, and Nutrition"
@@ -45,26 +45,25 @@ export default function TriangleConceptSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
           {/* Mindset Card */}
           <div className="bg-white rounded-xl overflow-hidden shadow-lg">
-            <div className="relative h-56">
+            <div className="relative h-48 sm:h-56">
               <Image
                 src="/images/home/mindset.jpg"
                 alt="Mindset - Spiritual Alignment"
                 fill
-                className="object-cover object-center"
-                style={{ objectPosition: "50% 30%" }}
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/0 to-black/60"></div>
-              <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#BFA8D9] flex items-center justify-center text-white">
-                <span className="text-2xl">✧</span>
+              <div className="absolute top-3 sm:top-4 right-3 sm:right-4 w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-[#BFA8D9] flex items-center justify-center text-white">
+                <span className="text-xl sm:text-2xl">✧</span>
               </div>
-              <div className="absolute bottom-4 left-4">
-                <h3 className="text-white text-2xl font-bold font-['Playfair_Display']">Mindset</h3>
-                <p className="text-white/90 text-sm font-['Lora']">Spiritual Alignment</p>
+              <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4">
+                <h3 className="text-white text-xl sm:text-2xl font-bold font-['Playfair_Display']">Mindset</h3>
+                <p className="text-white/90 text-xs sm:text-sm font-['Lora']">Spiritual Alignment</p>
               </div>
             </div>
             
-            <div className="p-6 md:p-8">
-              <p className="text-gray-700 font-['Lora']">
+            <div className="p-4 sm:p-6 md:p-8">
+              <p className="text-gray-700 text-sm sm:text-base font-['Lora']">
                 Our thoughts shape our reality. Joy, gratitude, 
                 and connection to our purpose fuel the soul. 
                 Recognizing the magic in life and embracing our 
@@ -72,15 +71,15 @@ export default function TriangleConceptSection() {
               </p>
               
               {/* Key Elements shown on all devices */}
-              <div className="mt-6">
-                <h4 className="font-semibold font-['Playfair_Display'] text-lg mb-4">Key Elements:</h4>
+              <div className="mt-4 sm:mt-6">
+                <h4 className="font-semibold font-['Playfair_Display'] text-base sm:text-lg mb-3 sm:mb-4">Key Elements:</h4>
                 
-                <ul className="space-y-2">
+                <ul className="space-y-1 sm:space-y-2">
                   {['Meditation and mindfulness', 'Spiritual practices', 'Purpose alignment', 
                     'Emotional well-being techniques', 'Personal growth guidance'].map((item, i) => (
                     <li key={i} className="flex items-start">
                       <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#BFA8D9]"></div>
-                      <span className="text-gray-700 text-sm font-['Lora']">{item}</span>
+                      <span className="text-gray-700 text-xs sm:text-sm font-['Lora']">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -90,7 +89,7 @@ export default function TriangleConceptSection() {
 
           {/* Movement Card */}
           <div className="bg-white rounded-xl overflow-hidden shadow-lg">
-            <div className="relative h-56">
+            <div className="relative h-48 sm:h-56">
               <Image
                 src="/images/home/movement.jpg"
                 alt="Movement - Physical Maintenance"
@@ -98,17 +97,17 @@ export default function TriangleConceptSection() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/0 to-black/60"></div>
-              <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#A8C3A7] flex items-center justify-center text-white">
-                <span className="text-2xl">⟳</span>
+              <div className="absolute top-3 sm:top-4 right-3 sm:right-4 w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-[#A8C3A7] flex items-center justify-center text-white">
+                <span className="text-xl sm:text-2xl">⟳</span>
               </div>
-              <div className="absolute bottom-4 left-4">
-                <h3 className="text-white text-2xl font-bold font-['Playfair_Display']">Movement</h3>
-                <p className="text-white/90 text-sm font-['Lora']">Physical Maintenance</p>
+              <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4">
+                <h3 className="text-white text-xl sm:text-2xl font-bold font-['Playfair_Display']">Movement</h3>
+                <p className="text-white/90 text-xs sm:text-sm font-['Lora']">Physical Maintenance</p>
               </div>
             </div>
             
-            <div className="p-6 md:p-8">
-              <p className="text-gray-700 font-['Lora']">
+            <div className="p-4 sm:p-6 md:p-8">
+              <p className="text-gray-700 text-sm sm:text-base font-['Lora']">
                 Just as a car needs regular care, our body 
                 requires movement. Strength, flexibility, and 
                 energy flow through exercise, yoga, and 
@@ -116,15 +115,15 @@ export default function TriangleConceptSection() {
               </p>
               
               {/* Key Elements shown on all devices */}
-              <div className="mt-6">
-                <h4 className="font-semibold font-['Playfair_Display'] text-lg mb-4">Key Elements:</h4>
+              <div className="mt-4 sm:mt-6">
+                <h4 className="font-semibold font-['Playfair_Display'] text-base sm:text-lg mb-3 sm:mb-4">Key Elements:</h4>
                 
-                <ul className="space-y-2">
+                <ul className="space-y-1 sm:space-y-2">
                   {['Personalized movement routines', 'Yoga and stretching guidance', 'Energy flow techniques', 
                     'Physical alignment practices', 'Breathwork integration'].map((item, i) => (
                     <li key={i} className="flex items-start">
                       <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#A8C3A7]"></div>
-                      <span className="text-gray-700 text-sm font-['Lora']">{item}</span>
+                      <span className="text-gray-700 text-xs sm:text-sm font-['Lora']">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -134,7 +133,7 @@ export default function TriangleConceptSection() {
 
           {/* Nutrition Card */}
           <div className="bg-white rounded-xl overflow-hidden shadow-lg">
-            <div className="relative h-56">
+            <div className="relative h-48 sm:h-56">
               <Image
                 src="/images/home/food.jpg"
                 alt="Nutrition - Fuel for the Body"
@@ -142,17 +141,17 @@ export default function TriangleConceptSection() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/0 to-black/60"></div>
-              <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#E8D7B7] flex items-center justify-center text-white">
-                <span className="text-2xl">🌱</span>
+              <div className="absolute top-3 sm:top-4 right-3 sm:right-4 w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-[#E8D7B7] flex items-center justify-center text-white">
+                <span className="text-xl sm:text-2xl">🌱</span>
               </div>
-              <div className="absolute bottom-4 left-4">
-                <h3 className="text-white text-2xl font-bold font-['Playfair_Display']">Nutrition</h3>
-                <p className="text-white/90 text-sm font-['Lora']">Fuel for the Body</p>
+              <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4">
+                <h3 className="text-white text-xl sm:text-2xl font-bold font-['Playfair_Display']">Nutrition</h3>
+                <p className="text-white/90 text-xs sm:text-sm font-['Lora']">Fuel for the Body</p>
               </div>
             </div>
             
-            <div className="p-6 md:p-8">
-              <p className="text-gray-700 font-['Lora']">
+            <div className="p-4 sm:p-6 md:p-8">
+              <p className="text-gray-700 text-sm sm:text-base font-['Lora']">
                 What we eat is the foundation of our physical, 
                 mental, and spiritual health. Food is medicine, 
                 and mindful nutrition supports longevity, vitality, 
@@ -160,15 +159,15 @@ export default function TriangleConceptSection() {
               </p>
               
               {/* Key Elements shown on all devices */}
-              <div className="mt-6">
-                <h4 className="font-semibold font-['Playfair_Display'] text-lg mb-4">Key Elements:</h4>
+              <div className="mt-4 sm:mt-6">
+                <h4 className="font-semibold font-['Playfair_Display'] text-base sm:text-lg mb-3 sm:mb-4">Key Elements:</h4>
                 
-                <ul className="space-y-2">
+                <ul className="space-y-1 sm:space-y-2">
                   {['Personalized nutrition plans', 'Food as medicine approach', 'Mindful eating practices', 
                     'Seasonal & local food guidance', 'Healing recipes & meal preparation'].map((item, i) => (
                     <li key={i} className="flex items-start">
                       <div className="mt-1.5 mr-2 w-2 h-2 rounded-full bg-[#E8D7B7]"></div>
-                      <span className="text-gray-700 text-sm font-['Lora']">{item}</span>
+                      <span className="text-gray-700 text-xs sm:text-sm font-['Lora']">{item}</span>
                     </li>
                   ))}
                 </ul>

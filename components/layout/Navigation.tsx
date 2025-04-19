@@ -53,47 +53,17 @@ export function Navigation({ activePage }: NavigationProps) {
           </Link>
 
           <div className="flex items-center gap-4">
-            {/* Desktop Contact Button */}
-            <div className="hidden md:block">
-              <Link href="/contact">
-                <Button 
-                  style={getButtonBgColor()} 
-                  className="hover:opacity-90 font-sans text-sm"
-                >
-                  Get in Touch
-                </Button>
-              </Link>
-            </div>
-            
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-gray-700 hover:text-gray-900 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Contact Button for all screen sizes */}
+            <Link href="/contact">
+              <Button 
+                style={getButtonBgColor()} 
+                className="hover:opacity-90 font-sans text-xs md:text-sm"
+              >
+                Get in Touch
+              </Button>
+            </Link>
           </div>
         </div>
-        
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-b shadow-sm" style={{ borderColor: "#f8f8f8" }}>
-            <div className="py-4 px-4">
-              <Link 
-                href="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <Button 
-                  style={getButtonBgColor()} 
-                  className="w-full hover:opacity-90 font-sans text-sm"
-                >
-                  Get in Touch
-                </Button>
-              </Link>
-            </div>
-          </div>
-        )}
       </div>
     </header>
   )
