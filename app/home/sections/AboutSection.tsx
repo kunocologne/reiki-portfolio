@@ -68,18 +68,18 @@ export default function AboutSection() {
               <div className="hidden sm:block w-12 md:w-24 h-0.5 opacity-70 bg-[#E3A76F]"></div>
             </div>
             
-            <div className="w-full md:w-11/12 max-w-7xl mx-auto mt-16 mb-8 flex flex-col lg:flex-row justify-center items-center">
+            <div className="w-full md:w-11/12 max-w-7xl mx-auto mt-16 mb-8 flex flex-col lg:flex-row justify-center items-start">
               {/* Certificates Image */}
-              <div className="w-full lg:w-5/12 mb-16 lg:mb-0">
+              <div className="w-full lg:w-5/12 mb-16 lg:mb-0 lg:h-[520px] flex items-center">
                 <img 
                   src="/images/home/smile.png" 
                   alt="Nathanael Mor" 
-                  className="w-full max-w-[500px] h-auto rounded-[20px] object-cover shadow-lg mx-auto" 
+                  className="w-full h-auto max-h-[520px] rounded-[20px] object-cover shadow-lg mx-auto" 
                 />
               </div>
               
               {/* Certification Pills */}
-              <div className="w-full lg:w-7/12 flex flex-col justify-center items-center lg:items-end gap-7">
+              <div className="w-full lg:w-7/12 flex flex-col justify-between h-[520px] py-2">
                 {[
                   "Angel therapy practitioner",
                   "holistic coaching",
@@ -90,7 +90,7 @@ export default function AboutSection() {
                 ].map((certification, index) => (
                   <div 
                     key={index}
-                    className="w-full max-w-[450px] h-14 rounded-full shadow-md bg-gradient-to-r from-[#c5d7b9] to-[#e3c5a0] flex items-center justify-center"
+                    className="w-full max-w-[450px] h-[64px] rounded-full shadow-md bg-gradient-to-r from-[#c5d7b9] to-[#e3c5a0] flex items-center justify-center ml-auto"
                   >
                     <span className="text-white text-lg font-medium font-['Work_Sans'] uppercase tracking-[3px] text-center">
                       {certification}
